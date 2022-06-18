@@ -7,12 +7,13 @@ import {
   Footer,
   Input,
   Media,
+  Select,
   WebComponents,
 } from '@shule/web/components';
 export function App() {
   return (
     <div className="  font-glory">
-      <Footer />
+      <Select name="sell" options={['selling', 'buying']} />
     </div>
   );
 }
