@@ -2,6 +2,13 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "shule": "apps/shule"
+    "backend-e-commerce": "libs/backend/e-commerce",
+    "frontend": "apps/frontend",
+
+    "frontend-e2e": "apps/frontend-e2e",
+
+    "shule": "apps/shule",
+    "web-components": "libs/web/components",
+    "web-helpers": "libs/web/helpers"
   }
 }

@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@shule/backend/e-commerce": ["libs/backend/e-commerce/src/index.ts"],
+      "@shule/frontend/components": ["libs/frontend/components/src/index.ts"],
+      "@shule/helpers": ["libs/helpers/src/index.ts"],
+      "@shule/web/components": ["libs/web/components/src/index.ts"],
+      "@shule/web/helpers": ["libs/web/helpers/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
