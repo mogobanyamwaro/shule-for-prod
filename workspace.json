@@ -4,11 +4,10 @@
   "projects": {
     "backend-e-commerce": "libs/backend/e-commerce",
     "frontend": "apps/frontend",
-
     "frontend-e2e": "apps/frontend-e2e",
-
     "shule": "apps/shule",
     "web-components": "libs/web/components",
+    "web-components-e2e": "apps/web-components-e2e",
     "web-helpers": "libs/web/helpers"
   }
 }

@@ -4,12 +4,14 @@ import NxWelcome from './nx-welcome';
 
 import { Route, Routes, Link } from 'react-router-dom';
 import { WebHelpers } from '@shule/web/helpers';
-
+import { Button, WebComponents } from '@shule/web/components';
 export function App() {
   return (
     <>
-      <h1 className="text-primary">hello world</h1>
-      <WebHelpers />
+      <h1 className="text-main text-6xl">hello world</h1>
+
+      <WebComponents />
+      <Button />
     </>
   );
 }
