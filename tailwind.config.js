@@ -9,6 +9,10 @@ module.exports = {
     ),
     join(
       __dirname,
+      'libs/web/containers/src/**/!(*.stories|*.spec).{ts,tsx,html,js}'
+    ),
+    join(
+      __dirname,
       'apps/frontend/src/**/!(*.stories|*.spec).{ts,tsx,html,js}'
     ),
 
@@ -18,6 +22,7 @@ module.exports = {
     extend: {},
     fontFamily: {
       glory: ['Glory', 'sans-serif'],
+      Elsie: ['Elsie', 'cursive'],
     },
     colors: {
       primary: '#FFEA9E',
@@ -28,6 +33,10 @@ module.exports = {
       white: '#FFFFFF',
       black: '#000000',
       gray: '#D9D9D9',
+    },
+    backgroundImage: {
+      Logo: 'url("apps/frontend/src/assets/Logo.png")',
+      Home: 'url("apps/frontend/src/assets/home.png")',
     },
   },
   plugins: [],

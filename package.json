@@ -4,6 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
+    "storybook1": "nx storybook web-components ",
+    "storybook2": "nx storybook web-containers",
     "build": "nx build",
     "test": "nx test"
   },
