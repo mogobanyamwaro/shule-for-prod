@@ -5,7 +5,13 @@ import search from '../assets/search.png';
 import Logo from '../assets/Logo.png';
 import shuleIs from '../assets/shuleIs.png';
 import BludderImage from '../assets/bludders.png';
-import { GoShuleIs, Hero, Navbar, SchoolLogos } from '@shule/web/containers';
+import {
+  GoShuleIs,
+  Hero,
+  Navbar,
+  SchoolLogos,
+  Slider,
+} from '@shule/web/containers';
 export function App() {
   return (
     <div className=" font-glory ">
@@ -23,6 +29,13 @@ export function App() {
         buttonText="Shop Now"
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio ipsum morbi non pellentesque."
         title="Shop for all the latest stationery"
+      />
+      <Slider
+        images={[
+          'https://picsum.photos/800',
+          'https://picsum.photos/800',
+          'https://picsum.photos/800',
+        ]}
       />
     </div>
   );
