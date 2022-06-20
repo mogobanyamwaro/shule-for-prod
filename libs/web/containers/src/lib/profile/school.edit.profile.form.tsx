@@ -2,7 +2,7 @@ import { Button, Input, Media } from '@shule/web/components';
 import React from 'react';
 import { Slider } from '../Slider';
 
-function ProfileForm() {
+export function ProfileForm() {
   return (
     <form className="px-5 pb-5">
       <div className="py-5">
@@ -77,12 +77,22 @@ function ProfileForm() {
           Here are few things you may need for your school:
         </p>
         <Slider
-          images={[
-            'https://picsum.photos/700',
-            'https://picsum.photos/800',
-            'https://picsum.photos/600',
-            'https://picsum.photos/600',
-            'https://picsum.photos/600',
+          items={[
+            {
+              image: 'https://picsum.photos/700',
+              product: 'Product 1',
+              price: '100.24',
+            },
+            {
+              image: 'https://picsum.photos/700',
+              product: 'River and the sourse',
+              price: '13340.24',
+            },
+            {
+              image: 'https://picsum.photos/700',
+              product: 'Pens and pencils',
+              price: '453.24',
+            },
           ]}
         />
       </div>

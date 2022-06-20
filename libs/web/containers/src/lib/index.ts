@@ -8,3 +8,5 @@ export * from './MinBlog';
 export * from './LoginForm';
 export * from './registration';
 export * from './profile';
+export * from './school';
+export * from './photo-gallery';

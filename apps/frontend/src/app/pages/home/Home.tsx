@@ -34,10 +34,16 @@ function Home() {
         title="Shop for all the latest stationery"
       />
       <Slider
-        images={[
-          'https://picsum.photos/800',
-          'https://picsum.photos/800',
-          'https://picsum.photos/800',
+        items={[
+          {
+            image: 'https://picsum.photos/700',
+          },
+          {
+            image: 'https://picsum.photos/700',
+          },
+          {
+            image: 'https://picsum.photos/700',
+          },
         ]}
       />
       <MinBlog

@@ -5,7 +5,7 @@ export interface SchoolNavbarProps {
   Logo: string;
 }
 
-function SchoolNavbar(props: SchoolNavbarProps) {
+export function SchoolNavbar(props: SchoolNavbarProps) {
   const { Search, Logo } = props;
   return (
     <div className="w-full flex justify-end pt-4">
