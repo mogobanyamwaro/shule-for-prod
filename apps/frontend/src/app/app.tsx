@@ -1,9 +1,13 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
-import ViewScholDetails from './pages/profile/view.school.profil';
+import EditSchoolProfile from './pages/profile/edit.school.profile';
 
 export function App() {
-  return <ViewScholDetails />;
+  return (
+    <div className="font-glory">
+      <EditSchoolProfile />
+    </div>
+  );
 }
 
 export default App;
