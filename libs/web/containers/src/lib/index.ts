@@ -4,3 +4,7 @@ export * from './Hero';
 export * from './ShoolLogos';
 export * from './WhatGoshuleIs';
 export * from './Slider';
+export * from './MinBlog';
+export * from './LoginForm';
+export * from './registration';
+export * from './profile';

@@ -20,7 +20,8 @@
       "@shule/helpers": ["libs/helpers/src/index.ts"],
       "@shule/web/components": ["libs/web/components/src/index.ts"],
       "@shule/web/containers": ["libs/web/containers/src/index.ts"],
-      "@shule/web/helpers": ["libs/web/helpers/src/index.ts"]
+      "@shule/web/helpers": ["libs/web/helpers/src/index.ts"],
+      "@shule/web/pages": ["libs/web/pages/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

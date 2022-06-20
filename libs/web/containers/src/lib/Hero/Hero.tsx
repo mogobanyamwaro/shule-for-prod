@@ -9,15 +9,15 @@ export interface HeroProps {
 export function Hero(props: HeroProps) {
   const { backgroundImage, searchImage } = props;
   return (
-    <div className={`h-96 ${backgroundImage} bg-center bg-cover pt-3`}>
+    <div className={`h-96 ${backgroundImage} bg-center bg-cover pt-3 px-5`}>
       <div className="flex justify-center items-center h-96">
         <div className="">
-          <h1 className="font-Elsie font-bold text-main text-4xl leading-7 drop-shadow-md text-left ">
+          <h1 className="font-Elsie font-bold text-main text-2xl leading-7 drop-shadow-md text-center ">
             Find the Best <br></br> School for your <br /> Child
           </h1>
-          <h2 className="text-white drop-shadow-lg font-semibold text-2xl text-left">
-            GoShule, a place where you can choose the <br /> best school options
-            based on kenyans <br /> countrywide
+          <h2 className="text-white drop-shadow-lg font-semibold text-xl text-center">
+            GoShule, a place where you can choose the best school options based
+            on kenyans countrywide
           </h2>
           <div className="flex justify-center">
             <div className="w-36">
