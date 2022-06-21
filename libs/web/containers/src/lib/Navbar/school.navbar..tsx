@@ -3,13 +3,16 @@ import React from 'react';
 export interface SchoolNavbarProps {
   Search: string;
   Logo: string;
+  cart?: string;
 }
 
 export function SchoolNavbar(props: SchoolNavbarProps) {
   const { Search, Logo } = props;
   return (
     <div className="w-full flex justify-end pt-4">
-      <div className="flex w-8/12 justify-between">
+      <div
+        className={`flex ${props.cart ? 'w-full' : 'w-8/12'} justify-between`}
+      >
         <div>
           <img src={Logo} alt="" />
         </div>
@@ -19,6 +22,7 @@ export function SchoolNavbar(props: SchoolNavbarProps) {
           </div>
           <img src={Search} className="pl-4 h-6" alt="" />
         </div>
+        {props.cart && <img src={props.cart} className="pl-4 h-6" alt="" />}
       </div>
     </div>
   );

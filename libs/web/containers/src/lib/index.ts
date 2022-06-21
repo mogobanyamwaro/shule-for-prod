@@ -10,3 +10,6 @@ export * from './registration';
 export * from './profile';
 export * from './school';
 export * from './photo-gallery';
+export * from './createuserform';
+export * from './paymentmethods';
+export * from './userinformation';

@@ -23,6 +23,7 @@ module.exports = {
     fontFamily: {
       glory: ['Glory', 'sans-serif'],
       Elsie: ['Elsie', 'cursive'],
+      Montserrat: ['Montserrat', 'sans-serif'],
     },
     colors: {
       primary: '#FFEA9E',
@@ -30,6 +31,8 @@ module.exports = {
       secondary: '#7E4BEB',
       green: '#159600',
       main: '#7E4BEB',
+      mainLight: '#A687E9',
+      grayDark: '#666666',
       white: '#FFFFFF',
       black: '#000000',
       gray: '#D9D9D9',
