@@ -98,6 +98,7 @@ export function ViewScholDetails() {
               ]}
             />
           </div>
+
           <div>
             <h2 className="text-main py-4 font-semibold text-xl">
               Rating and comments:
@@ -122,6 +123,7 @@ export function ViewScholDetails() {
               </Button>
             </div>
           </div>
+
           <div>
             <div className="pb-4">
               <Media
@@ -156,12 +158,14 @@ export function ViewScholDetails() {
               />
             </div>
           </div>
+
           <div>
             <h1 className="text-main py-4 font-semibold text-xl">
               Add Comment
             </h1>
             <Input bgColor="bg-primary" py="py-8" type="textarea" />
           </div>
+
           <div>
             <h1 className="text-main py-4 font-semibold text-xl">
               Similar Schools
