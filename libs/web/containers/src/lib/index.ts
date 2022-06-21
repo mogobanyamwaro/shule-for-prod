@@ -13,3 +13,4 @@ export * from './photo-gallery';
 export * from './createuserform';
 export * from './paymentmethods';
 export * from './userinformation';
+export * from './carousel';

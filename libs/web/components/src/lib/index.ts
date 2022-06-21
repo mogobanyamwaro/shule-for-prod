@@ -7,3 +7,4 @@ export * from './Select';
 export * from './Cart';
 export * from './SchoolLogo';
 export * from './rating';
+export * from './commerce-media';
