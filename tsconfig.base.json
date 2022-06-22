@@ -21,6 +21,7 @@
       "@shule/web/components": ["libs/web/components/src/index.ts"],
       "@shule/web/containers": ["libs/web/containers/src/index.ts"],
       "@shule/web/helpers": ["libs/web/helpers/src/index.ts"],
+      "@shule/web/middlewares": ["libs/web/middlewares/src/index.ts"],
       "@shule/web/pages": ["libs/web/pages/src/index.ts"],
       "@shule/web/redux": ["libs/web/redux/src/index.ts"]
     }

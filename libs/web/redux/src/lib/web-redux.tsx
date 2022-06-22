@@ -1,14 +1,20 @@
-import styles from './web-redux.module.css';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import logger from 'redux-logger';
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { refreshTokenMiddleware } from '@shule/web/middlewares';
+const reduceers = combineReducers({});
 
-/* eslint-disable-next-line */
-export interface WebReduxProps {}
+export const store = configureStore({
+  reducer: reduceers,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false })
+      .prepend(refreshTokenMiddleware)
+      .concat(logger),
+});
 
-export function WebRedux(props: WebReduxProps) {
-  return (
-    <div className={styles['container']}>
-      <h1>Welcome to WebRedux!</h1>
-    </div>
-  );
-}
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
-export default WebRedux;
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

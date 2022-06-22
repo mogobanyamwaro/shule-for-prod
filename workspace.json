@@ -11,6 +11,7 @@
     "web-containers": "libs/web/containers",
     "web-containers-e2e": "apps/web-containers-e2e",
     "web-helpers": "libs/web/helpers",
+    "web-middlewares": "libs/web/middlewares",
     "web-redux": "libs/web/redux"
   }
 }
