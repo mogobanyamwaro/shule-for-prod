@@ -4,6 +4,7 @@ export interface StarProps {
   setRating: (rating: number) => void;
   hover: number;
   setHover: (hover: number) => void;
+  onClick?: () => void;
 }
 
 export function Ratings(props: StarProps) {

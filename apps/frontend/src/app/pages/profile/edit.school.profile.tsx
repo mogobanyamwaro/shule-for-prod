@@ -12,15 +12,15 @@ export function EditSchoolProfile() {
     <div>
       <div className="px-5">
         <SchoolNavbar Logo={Logo} Search={Search} />
-        <div>
+        <div className="">
           <h1 className="text-main text-xl font-semibold py-4">Welcome</h1>
-          <p className="text-main text-2xl font-bold text-center pb-4">
+          <p className="text-main text-2xl font-bold text-center md:text-left pb-4md:max-w-5xl md:mx-auto">
             School 1 Academy
           </p>
-          <h1 className="text-main text-xl font-semibold py-4">
+          <h1 className="text-main text-xl font-semibold py-4 md:my-4">
             Page Engagement
           </h1>
-          <div className="flex justify-between pb-5">
+          <div className="flex justify-between pb-5 md:max-w-5xl md:mx-auto">
             <div
               className="bg-primaryDark h-24 w-1/3 mr-1 flex flex-col
              justify-around items-center text-xl font-glory"
@@ -44,7 +44,7 @@ export function EditSchoolProfile() {
             </div>
           </div>
           <PhotoGallery />
-          <div className="pt-5">
+          <div className="pt-5 md:max-w-5xl md:mx-auto">
             <Button
               bgColor="bg-primaryDark"
               bgColorHover="bg-primaryDark"
@@ -55,7 +55,7 @@ export function EditSchoolProfile() {
               Add Photos
             </Button>
           </div>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center md:max-w-5xl md:mx-auto">
             <h1 className="text-main py-4 font-semibold text-xl">About</h1>
             <Button
               bgColor="bg-primaryDark"
@@ -67,7 +67,7 @@ export function EditSchoolProfile() {
               Edit
             </Button>
           </div>
-          <p className="">
+          <p className="md:max-w-5xl md:mx-auto">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet
             purus sagittis urna enim. At amet, amet quis velit nec. Dolor,
             volutpat pellentesque fringilla nec ac. Vestibulum porttitor mi in
@@ -75,7 +75,7 @@ export function EditSchoolProfile() {
           </p>
           <div>
             {' '}
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center md:max-w-5xl md:mx-auto">
               <h1 className="text-main py-4 font-semibold text-xl">
                 Education System:
               </h1>
@@ -89,9 +89,9 @@ export function EditSchoolProfile() {
                 Edit
               </Button>
             </div>
-            <p className="text-green">8.4.4</p>
+            <p className="text-green md:max-w-5xl md:mx-auto">8.4.4</p>
           </div>
-          <div>
+          <div className="md:max-w-5xl md:mx-auto">
             <div className="flex justify-between items-center">
               <h1 className="text-main py-4 font-semibold text-xl">
                 Location:
@@ -108,7 +108,7 @@ export function EditSchoolProfile() {
             </div>
             <p className="text-green">Kahawa Wendani, Nairobi,Kenya</p>
           </div>
-          <div>
+          <div className="md:max-w-5xl md:mx-auto">
             <div className="flex justify-between items-center">
               <h1 className="text-main py-4 font-semibold text-xl">
                 Performance Statistics in the last National Exam{' '}
@@ -133,7 +133,7 @@ export function EditSchoolProfile() {
               Download document
             </Button>
           </div>
-          <div>
+          <div className="md:max-w-5xl md:mx-auto">
             <div className="flex justify-between items-center">
               <h1 className="text-main py-4 font-semibold text-xl">
                 Licensing and Certificatiion
@@ -150,7 +150,7 @@ export function EditSchoolProfile() {
             </div>
             <p className="text-green">Kenya Curriculum license</p>
           </div>
-          <div>
+          <div className="md:max-w-5xl md:mx-auto">
             <div className="flex justify-between items-center">
               <h1 className="text-main py-4 font-semibold text-xl">Email</h1>
               <Button
@@ -166,7 +166,7 @@ export function EditSchoolProfile() {
             <p className="text-green">school@gmail.com</p>
           </div>
           <div>
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center md:max-w-5xl md:mx-auto">
               <h1 className="text-main py-4 font-semibold text-xl">Phone</h1>
               <Button
                 bgColor="bg-primaryDark"
@@ -178,7 +178,9 @@ export function EditSchoolProfile() {
                 Edit
               </Button>
             </div>
-            <p className="text-green">+254 789 789 789</p>
+            <p className="text-green md:max-w-5xl md:mx-auto">
+              +254 789 789 789
+            </p>
           </div>
           <div>
             <Slider
@@ -212,7 +214,7 @@ export function EditSchoolProfile() {
               ]}
             />
           </div>
-          <div>
+          <div className="md:max-w-5xl md:mx-auto">
             <h2 className="text-main py-4 font-semibold text-xl">
               Rating and comments:
             </h2>
@@ -226,7 +228,7 @@ export function EditSchoolProfile() {
               />
             </div>
           </div>
-          <div>
+          <div className="md:max-w-5xl md:mx-auto">
             <div className="pb-4">
               <Media
                 title="Username 1"

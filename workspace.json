@@ -10,6 +10,7 @@
     "web-components-e2e": "apps/web-components-e2e",
     "web-containers": "libs/web/containers",
     "web-containers-e2e": "apps/web-containers-e2e",
-    "web-helpers": "libs/web/helpers"
+    "web-helpers": "libs/web/helpers",
+    "web-redux": "libs/web/redux"
   }
 }

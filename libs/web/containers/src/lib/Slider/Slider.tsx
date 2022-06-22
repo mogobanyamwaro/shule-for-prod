@@ -1,4 +1,5 @@
 import { SchoolLogo } from '@shule/web/components';
+import { useNavigate } from 'react-router-dom';
 import '../index.css';
 
 /* eslint-disable-next-line */
@@ -11,13 +12,19 @@ interface Items {
   product?: string;
   price?: string;
   schoolType?: string;
+  onClick?: () => void;
 }
 
 export function Slider(props: SliderProps) {
   const { items, title } = props;
+
   return (
     <div>
-      {title && <h1 className="text-main  font-bold py-5">{title}</h1>}
+      {title && (
+        <h1 className="text-main  font-bold py-5 md:text-xl md:px-5">
+          {title}
+        </h1>
+      )}
       <div className=" overflow-x-scroll flex  pl-5  ">
         {items.map(
           (item: {
@@ -25,14 +32,18 @@ export function Slider(props: SliderProps) {
             product?: string;
             price?: string;
             schoolType?: string;
+            onClick?: () => void;
           }) => (
-            <div className="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 overflow-y-hidden  bg-primary relative">
+            <div
+              onClick={item.onClick}
+              className="flex-none w-2/3 md:w-1/3  mr-8 md:pb-4 overflow-y-hidden cursor-pointer  bg-primary relative"
+            >
               {item.schoolType && (
                 <h1 className="text-white  text-md absolute bottom-10 right-10">
                   {item.schoolType}
                 </h1>
               )}
-              <a href="#" className="space-y-4">
+              <div className="space-y-4">
                 <div className="aspect-w-16 aspect-h-9">
                   <img
                     className="object-cover shadow-sm hover:shadow-md "
@@ -52,7 +63,7 @@ export function Slider(props: SliderProps) {
                     </div>
                   </div>
                 )}
-              </a>
+              </div>
             </div>
           )
         )}

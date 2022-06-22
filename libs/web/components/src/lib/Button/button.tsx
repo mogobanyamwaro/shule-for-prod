@@ -16,7 +16,7 @@ export function Button(props: ButtonProps) {
   return (
     <button
       onClick={props.onClick}
-      className={`${bgColor} hover:${bgColorHover} ${textColor} font-bold ${py} ${px}  rounded`}
+      className={`${bgColor} hover:${bgColorHover} ${textColor} font-bold ${py} ${px}  rounded `}
     >
       {children}
     </button>

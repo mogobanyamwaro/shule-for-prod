@@ -1,5 +1,6 @@
 import { Input } from '@shule/web/components';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 export interface SchoolNavbarProps {
   Search: string;
   Logo: string;
@@ -8,13 +9,19 @@ export interface SchoolNavbarProps {
 
 export function SchoolNavbar(props: SchoolNavbarProps) {
   const { Search, Logo } = props;
+  const navigate = useNavigate();
   return (
     <div className="w-full flex justify-end pt-4">
       <div
         className={`flex ${props.cart ? 'w-full' : 'w-8/12'} justify-between`}
       >
         <div>
-          <img src={Logo} alt="" />
+          <img
+            src={Logo}
+            className="cursor-pointer"
+            onClick={() => navigate('/')}
+            alt=""
+          />
         </div>
         <div className="flex items-center">
           <div className="w-24">
@@ -22,7 +29,19 @@ export function SchoolNavbar(props: SchoolNavbarProps) {
           </div>
           <img src={Search} className="pl-4 h-6" alt="" />
         </div>
-        {props.cart && <img src={props.cart} className="pl-4 h-6" alt="" />}
+        {props.cart && (
+          <div className="relative cursor-pointer">
+            <img
+              src={props.cart}
+              className="pl-4 h-6"
+              onClick={() => navigate('/cart')}
+              alt=""
+            />
+            <p className=" text-green font-bold text-xl absolute -top-3 -right-3">
+              0
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

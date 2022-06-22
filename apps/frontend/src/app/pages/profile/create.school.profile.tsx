@@ -19,7 +19,7 @@ function SchoolProfile() {
             {' '}
             School 1 Academy
           </h1>
-          <p className="text-xs italic">
+          <p className="text-xs italic md:max-w-5xl md:mx-auto">
             Please fill this form to help us market your school. It will take
             less than 15 minutes. We will reach out to you once we have verified
             your details

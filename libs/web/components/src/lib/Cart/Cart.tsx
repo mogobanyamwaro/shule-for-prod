@@ -10,7 +10,7 @@ export interface CartProps {
 export function CartContainer(props: CartProps) {
   const { item, price, quantity, image } = props;
   return (
-    <div className="flex items-center pr-2  w-full h-36 shadow-lg border-b-2 border-gray  ">
+    <div className="flex items-center pr-2  w-full h-36 shadow-lg border-b-2 border-gray md:max-w-sm  ">
       <div>
         <img src={image} alt="" className="h-28 w-28" />
       </div>

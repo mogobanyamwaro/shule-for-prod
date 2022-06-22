@@ -41,6 +41,7 @@ module.exports = {
     backgroundImage: {
       Logo: 'url("apps/frontend/src/assets/Logo.png")',
       Home: 'url("apps/frontend/src/assets/home.png")',
+      HomeMd: 'url("apps/frontend/src/assets/md-home.png")',
     },
   },
   plugins: [],
