@@ -9,6 +9,7 @@ import EcommerceDashboard from '../pages/e-commerce/ecommerce.dashboard';
 import OderConfirmation from '../pages/e-commerce/order.confirmation';
 import ProductDetails from '../pages/e-commerce/product.details';
 import OrderSucces from '../pages/e-commerce/order.success';
+import AdminCreateProduct from '../pages/e-commerce/create.product';
 
 //Blog
 import AdminCreateBlog from '../pages/blog/admin.create.blog';
@@ -24,6 +25,9 @@ import ViewScholDetails from '../pages/profile/view.school.profil';
 import ViewSchools from '../pages/profile/view.schools.profile';
 import { Route, Routes } from 'react-router-dom';
 
+//Admin
+import AdminHome from '../pages/admin/admin.home';
+
 export const routes = (
   <Routes>
     <Route path="/" element={<Home />} />
@@ -38,6 +42,7 @@ export const routes = (
     <Route path="/order-confirmation" element={<OderConfirmation />} />
     <Route path="/product-details/:id" element={<ProductDetails />} />
     <Route path="/order-success" element={<OrderSucces />} />
+    <Route path="/create-product" element={<AdminCreateProduct />} />
 
     {/* Blog */}
 
@@ -54,5 +59,8 @@ export const routes = (
     <Route path="/update-user-profile" element={<UpdateUserProfile />} />
     <Route path="/view-school-details/:id" element={<ViewScholDetails />} />
     <Route path="/view-schools" element={<ViewSchools />} />
+
+    {/* Admin */}
+    <Route path="/admin-home" element={<AdminHome />} />
   </Routes>
 );

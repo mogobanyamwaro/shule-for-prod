@@ -63,6 +63,7 @@ function Home() {
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet purus sagittis urna enim. At amet, amet quis velit nec. Dolor, volutpat pellentesque fringilla nec ac. Vestibulum porttitor mi in ac. Tincidunt."
         image="https://picsum.photos/800"
         title="Blog Post Title"
+        onClick={() => navigate('/blog-details/1234')}
       />
       <Footer />
     </div>

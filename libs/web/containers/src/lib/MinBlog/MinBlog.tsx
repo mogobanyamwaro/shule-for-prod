@@ -6,10 +6,11 @@ export interface MinBlogProps {
   image: string;
   description: string;
   title: string;
+  onClick?: () => void;
 }
 
 export function MinBlog(props: MinBlogProps) {
-  const { image, description, title } = props;
+  const { image, description, title, onClick } = props;
   return (
     <div className="md:mt-16 md:mb-24">
       <h1 className="text-main text-2xl py-5 font-bold pl-4  ">{title}</h1>
@@ -30,6 +31,7 @@ export function MinBlog(props: MinBlogProps) {
               bgColorHover="bg-primaryDark"
               px="px-3"
               py="py-2"
+              onClick={onClick}
               textColor="text-main"
             >
               Read More

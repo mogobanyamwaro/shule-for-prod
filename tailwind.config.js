@@ -42,6 +42,7 @@ module.exports = {
       Logo: 'url("apps/frontend/src/assets/Logo.png")',
       Home: 'url("apps/frontend/src/assets/home.png")',
       HomeMd: 'url("apps/frontend/src/assets/md-home.png")',
+      AdminHome: 'url("apps/frontend/src/assets/admin-home.png")',
     },
   },
   plugins: [],

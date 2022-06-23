@@ -3,7 +3,7 @@ import '../index.css';
 
 export function Footer() {
   return (
-    <div className="static bottom-0 left-0 w-full pt-4">
+    <div className="static bottom-0 left-0 w-full ">
       <div className="flex items-center h-24 bg-primaryDark md:h-36 justify-around ">
         <div>
           <h1 className="text-2xl">GoShule</h1>
