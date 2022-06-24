@@ -9,6 +9,7 @@ import { UserAddress } from './user.address.entity';
 import { Rating } from '../rating/rating.entity';
 import { Blog } from '../blog/blog.entity';
 import { Product } from '../e-commerce/product.entity';
+import { AccessToken, RefreshToken } from '../auth';
 @Entity('users')
 export class User extends BaseEntity {
   @IsEmail()
@@ -72,4 +73,11 @@ export class User extends BaseEntity {
   @OneToMany(() => Product, (product) => product.user)
   @JoinColumn({ name: 'user_id' })
   products: Product[];
+  @OneToMany(() => RefreshToken, (refreshTokens) => refreshTokens.user)
+  @JoinColumn({ name: 'user_id' })
+  refreshTokens: RefreshToken[];
+
+  @OneToMany(() => AccessToken, (accessTokens) => accessTokens.user)
+  @JoinColumn({ name: 'user_id' })
+  accessTokens: AccessToken[];
 }

@@ -49,7 +49,7 @@ export class Institution extends BaseEntity {
   @Column({ name: 'instagram_link' })
   instagramLink: string;
 
-  @Column({ name: 'school_photos', type: 'array' })
+  @Column({ name: 'school_photos', type: 'text', array: true })
   schoolPhotos: string[];
 
   @ManyToOne(() => User, (user) => user.institutions)

@@ -1,8 +1,8 @@
 import { ProductEnumStatus } from '@shule/backend/enums';
-import { Column, JoinColumn, ManyToOne } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { BaseEntity } from '../base.entity';
 import { User } from '../users/user.entity';
-
+@Entity('products')
 export class Product extends BaseEntity {
   @Column({
     name: 'name',
@@ -25,7 +25,7 @@ export class Product extends BaseEntity {
   @Column({
     name: 'price',
   })
-  price: number | string;
+  price: string;
 
   @Column({
     name: 'tag',
@@ -34,7 +34,8 @@ export class Product extends BaseEntity {
 
   @Column({
     name: 'images',
-    type: 'array',
+    type: 'text',
+    array: true,
   })
   images: string[];
 

@@ -1,1 +1,1 @@
-export * from './lib/backend-dtos.module';
+export * from './lib';

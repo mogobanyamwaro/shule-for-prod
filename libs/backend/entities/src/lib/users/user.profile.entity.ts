@@ -40,6 +40,7 @@ export class Profile extends BaseEntity {
     default: PaymentMethods.CASH,
   })
   paymentMethod: PaymentMethods;
+
   @OneToOne(() => User, (user) => user.profile)
   @JoinColumn({ name: 'user_id' })
   user: User;

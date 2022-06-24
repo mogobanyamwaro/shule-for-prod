@@ -1,1 +1,1 @@
-export * from './lib/backend-decorators.module';
+export * from './lib';
