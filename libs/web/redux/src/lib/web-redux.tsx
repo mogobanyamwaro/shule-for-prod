@@ -2,7 +2,10 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { refreshTokenMiddleware } from '@shule/web/middlewares';
-const reduceers = combineReducers({});
+import { authReducer } from './auth';
+const reduceers = combineReducers({
+  auth: authReducer,
+});
 
 export const store = configureStore({
   reducer: reduceers,

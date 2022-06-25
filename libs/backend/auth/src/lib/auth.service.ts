@@ -41,6 +41,7 @@ export class AuthService implements OnModuleInit {
       password,
       role,
     });
+    console.log(user);
     return {
       code: HttpStatus.OK,
       message: 'User Created Successfully',

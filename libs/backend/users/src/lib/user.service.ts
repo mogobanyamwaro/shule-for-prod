@@ -1,6 +1,10 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CreateProfileInput, CreateUserInput } from '@shule/backend/dtos';
+import {
+  CreateProfileInput,
+  CreateUserInput,
+  InstitutionDTO,
+} from '@shule/backend/dtos';
 import { Institution, Profile, User } from '@shule/backend/entities';
 import { HashHelper } from '@shule/backend/shared';
 import { Repository } from 'typeorm';
@@ -35,6 +39,7 @@ export class UserService {
       this.userRepository.create({
         password,
         email: input.email,
+        role: input.role,
       })
     );
     return newUser;
@@ -133,5 +138,60 @@ export class UserService {
 
     const profile = await this.profileRepository.save(user);
     return profile;
+  }
+
+  async createInstitution(userId: string, input: InstitutionDTO) {
+    const user = await this.userRepository.findOne({
+      where: {
+        id: userId,
+      },
+      relations: ['profile'],
+    });
+    if (!user) {
+      return {
+        code: HttpStatus.NOT_FOUND,
+        message: 'User not found',
+      };
+    }
+
+    const institution = await this.institutionRepository.save(
+      this.institutionRepository.create({
+        ...input,
+        user,
+      })
+    );
+    return institution;
+  }
+
+  async updateInstitution(
+    userId: string,
+
+    input: Institution
+  ) {
+    const user = await this.userRepository.findOne({
+      where: {
+        id: userId,
+      },
+      relations: ['institutions'],
+    });
+    if (!user) {
+      return {
+        code: HttpStatus.NOT_FOUND,
+        message: 'User not found',
+      };
+    }
+
+    const institution = await this.institutionRepository.findOne({
+      where: {
+        id: input.id,
+      },
+    });
+    if (!institution) {
+      return {
+        code: HttpStatus.NOT_FOUND,
+        message: 'Institution not found',
+      };
+    }
+    return this.institutionRepository.save(institution);
   }
 }

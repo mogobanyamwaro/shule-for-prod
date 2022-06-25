@@ -1,1 +1,1 @@
-export * from './lib/web-redux';
+export * from './lib';
