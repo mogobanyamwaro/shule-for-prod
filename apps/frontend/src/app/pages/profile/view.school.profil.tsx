@@ -2,22 +2,93 @@ import React from 'react';
 import Search from '../../../assets/search.png';
 import back from '../../../assets/back.png';
 import Logo from '../../../assets/Logo.png';
+import { RatingEnumType } from '@shule/backend/enums';
 import {
   PhotoGallery,
   SchoolNavbar,
   Slider,
   ViewSchoolContainer,
 } from '@shule/web/containers';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button, Footer, Input, Media, Ratings } from '@shule/web/components';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import {
+  createRating,
+  createRatingAsync,
+  getAllInstitutionsAsync,
+  getInstitutionRatingsAsync,
+  getOneInstitutionsAsync,
+  useAppDispatch,
+  useAppSelector,
+} from '@shule/web/redux';
 export function ViewScholDetails() {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
+  const [comment, setComment] = useState('');
+
+  const institution = useAppSelector((state) => state.institution.institution);
+  const institutions = useAppSelector(
+    (state) => state.institution.institutions
+  );
+  const loading = useAppSelector((state) => state.institution.loading);
+  const institutionRatings = useAppSelector((state) => state.rating.ratings);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    try {
+      const url = location.pathname.split('/');
+      const id = url[url.length - 1];
+
+      dispatch(getOneInstitutionsAsync(id));
+      dispatch(getAllInstitutionsAsync());
+    } catch (error) {
+      console.log(error);
+    }
+  }, [dispatch, location]);
+
+  useEffect(() => {
+    try {
+      const url = location.pathname.split('/');
+      const id = url[url.length - 1];
+      dispatch(getInstitutionRatingsAsync(id));
+    } catch (error) {
+      console.log(error);
+    }
+  }, [dispatch, location]);
+
+  const handleSubmitComment = async () => {
+    const newRating = {
+      comment,
+      ratingValue: rating,
+      ratingType: RatingEnumType.INSTITUTION_RATING,
+    };
+
+    try {
+      await dispatch(createRatingAsync(newRating));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  if (loading) return <div>Loading...</div>;
+  console.log(institutionRatings);
+
+  const newInstitutions = institutions.map((institution) => {
+    return {
+      image: institution.schoolPhotos[0],
+      schoolType: institution.educationType,
+      id: institution.id,
+      onClick: function () {
+        navigate(`/view-school-details/${institution.id}`);
+      },
+      url: `/view-school-details/${institution.id}`,
+    };
+  });
+
   return (
     <div>
-      <div className="px-5">
+      <div className="px-5 pb-5">
         <SchoolNavbar Logo={Logo} Search={Search} />
         <div>
           <img
@@ -30,22 +101,17 @@ export function ViewScholDetails() {
           <h1 className="text-main py-4 font-semibold text-xl md:max-w-5xl md:mx-auto">
             About
           </h1>
-          <p className="md:max-w-5xl md:mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet
-            purus sagittis urna enim. At amet, amet quis velit nec. Dolor,
-            volutpat pellentesque fringilla nec ac. Vestibulum porttitor mi in
-            ac. Tincidunt.
-          </p>
+          <p className="md:max-w-5xl md:mx-auto">{institution.about}</p>
           <div className="md:max-w-5xl md:mx-auto">
             {' '}
             <h1 className="text-main py-4 font-semibold text-xl">
               Education System:
             </h1>
-            <p className="text-green">8.4.4</p>
+            <p className="text-green">{institution.educationType}</p>
           </div>
           <div className="md:max-w-5xl md:mx-auto">
             <h1 className="text-main py-4 font-semibold text-xl">Location</h1>
-            <p className="text-green">Kahawa Wendani, Nairobi,Kenya</p>
+            <p className="text-green">{institution.location}</p>
           </div>
           <div className="md:max-w-5xl md:mx-auto">
             <h1 className="text-main py-4 font-semibold text-xl">
@@ -65,15 +131,15 @@ export function ViewScholDetails() {
             <h1 className="text-main py-4 font-semibold text-xl">
               Licensing and Certificatiion
             </h1>
-            <p className="text-green">Kenya Curriculum license</p>
+            <p className="text-green">{institution.licenseAndCertification}</p>
           </div>
           <div className="md:max-w-5xl md:mx-auto">
             <h1 className="text-main py-4 font-semibold text-xl">Email</h1>
-            <p className="text-green">school@gmail.com</p>
+            <p className="text-green">{institution.email}</p>
           </div>
           <div className="md:max-w-5xl md:mx-auto">
             <h1 className="text-main py-4 font-semibold text-xl">Phone</h1>
-            <p className="text-green">+254 789 789 789</p>
+            <p className="text-green">{institution.phone}</p>
           </div>
           <div>
             <Slider
@@ -117,25 +183,6 @@ export function ViewScholDetails() {
             <h2 className="text-main py-4 font-semibold text-xl">
               Rating and comments:
             </h2>
-            <div className="flex justify-between pb-4 md:max-w-md">
-              {' '}
-              <Ratings
-                hover={hover}
-                rating={rating}
-                setHover={setHover}
-                setRating={setRating}
-              />
-              <Button
-                bgColor="bg-primaryDark"
-                bgColorHover="bg-primaryDark"
-                px="px-7"
-                py="py-2"
-                onClick={() => console.log(rating)}
-                textColor="text-main"
-              >
-                Rate
-              </Button>
-            </div>
           </div>
 
           <div className="md:max-w-5xl md:mx-auto">
@@ -178,7 +225,33 @@ export function ViewScholDetails() {
               Add Comment
             </h1>
             <div className="md:max-w-md">
-              <Input bgColor="bg-primary" py="py-8" type="textarea" />
+              <Input
+                name="comment"
+                OnChange={(e) => setComment(e.target.value)}
+                value={comment}
+                bgColor="bg-primary"
+                py="py-8"
+                type="textarea"
+              />
+            </div>
+            <div className="flex justify-between pb-4 md:max-w-md pt-3">
+              {' '}
+              <Ratings
+                hover={hover}
+                rating={rating}
+                setHover={setHover}
+                setRating={setRating}
+              />
+              <Button
+                bgColor="bg-primaryDark"
+                bgColorHover="bg-primaryDark"
+                px="px-7"
+                py="py-2"
+                onClick={() => handleSubmitComment()}
+                textColor="text-main"
+              >
+                Rate
+              </Button>
             </div>
           </div>
 
@@ -186,30 +259,7 @@ export function ViewScholDetails() {
             <h1 className="text-main py-4 font-semibold text-xl">
               Similar Schools
             </h1>
-            <Slider
-              items={[
-                {
-                  image: 'https://picsum.photos/800',
-                  schoolType: 'Primary',
-                  onClick: () => navigate('/view-school-details/1234'),
-                },
-                {
-                  image: 'https://picsum.photos/800',
-                  schoolType: 'Primary',
-                  onClick: () => navigate('/view-school-details/1234'),
-                },
-                {
-                  image: 'https://picsum.photos/800',
-                  schoolType: 'Primary',
-                  onClick: () => navigate('/view-school-details/1234'),
-                },
-                {
-                  image: 'https://picsum.photos/800',
-                  schoolType: 'Primary',
-                  onClick: () => navigate('/view-school-details/1234'),
-                },
-              ]}
-            />
+            <Slider items={newInstitutions} />
           </div>
         </div>
       </div>

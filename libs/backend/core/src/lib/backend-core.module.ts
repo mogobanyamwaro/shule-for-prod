@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BackendAuthModule } from '@shule/backend/auth';
 import { BackendUsersModule } from '@shule/backend/users';
+import { BackendRatingsModule } from '@shule/backend/ratings';
 import { getMetadataArgsStorage } from 'typeorm';
 @Module({
   controllers: [],
@@ -29,6 +30,7 @@ import { getMetadataArgsStorage } from 'typeorm';
     }),
     BackendUsersModule,
     BackendAuthModule,
+    BackendRatingsModule,
   ],
 })
 export class BackendCoreModule {}

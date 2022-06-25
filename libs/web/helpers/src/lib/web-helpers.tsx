@@ -1,4 +1,6 @@
 import jwtDecode, { JwtPayload } from 'jwt-decode';
+
+//parse Error
 export const parserErrorMessage = (error: any): string => {
   const isArray = Array.isArray(error);
   if (isArray) {
@@ -8,6 +10,8 @@ export const parserErrorMessage = (error: any): string => {
 };
 
 export default parserErrorMessage;
+
+//Persistent storage
 
 export const persistToken = (tokens: { accessToken: string } | '') => {
   let token = '';
@@ -22,6 +26,8 @@ export const persistToken = (tokens: { accessToken: string } | '') => {
   }
 };
 
+//Get token from local storage
+
 export const getToken = () => {
   return localStorage.getItem('token');
 };
@@ -29,6 +35,9 @@ export interface CustomJwtPayload extends JwtPayload {
   role: string;
   _id: string;
 }
+
+//Get user from token
+
 export const getRole = (token: string): string | null => {
   if (token) {
     const decode = jwtDecode<CustomJwtPayload>(token);
@@ -39,4 +48,40 @@ export const getRole = (token: string): string | null => {
     }
   }
   return null;
+};
+
+//Get auth config from tok
+
+export const getAuthConfig = () => {
+  const token = localStorage.getItem('token');
+  return {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+      Accept: '*/*',
+    },
+  };
+};
+
+export const getAuthFileConfig = () => {
+  const token = localStorage.getItem('token');
+  return {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data',
+      Accept: '*/*',
+    },
+  };
+};
+
+export const getFileUploadConfig = () => {
+  const token = localStorage.getItem('token');
+
+  return {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data',
+      Accept: '*/*',
+    },
+  };
 };

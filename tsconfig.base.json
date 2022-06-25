@@ -23,6 +23,7 @@
       "@shule/backend/entities": ["libs/backend/entities/src/index.ts"],
       "@shule/backend/enums": ["libs/backend/enums/src/index.ts"],
       "@shule/backend/providers": ["libs/backend/providers/src/index.ts"],
+      "@shule/backend/ratings": ["libs/backend/ratings/src/index.ts"],
       "@shule/backend/shared": ["libs/backend/shared/src/index.ts"],
       "@shule/backend/uploads": ["libs/backend/uploads/src/index.ts"],
       "@shule/backend/users": ["libs/backend/users/src/index.ts"],

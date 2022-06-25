@@ -3,8 +3,12 @@ import logger from 'redux-logger';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { refreshTokenMiddleware } from '@shule/web/middlewares';
 import { authReducer } from './auth';
+import { institutionReducer } from './instititution';
+import { ratingReducer } from './rating';
 const reduceers = combineReducers({
   auth: authReducer,
+  institution: institutionReducer,
+  rating: ratingReducer,
 });
 
 export const store = configureStore({

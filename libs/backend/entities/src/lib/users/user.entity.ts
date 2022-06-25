@@ -1,4 +1,11 @@
-import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+} from 'typeorm';
 import { BaseEntity } from '../base.entity';
 import { Exclude } from 'class-transformer';
 import { IsEmail } from 'class-validator';
@@ -63,13 +70,13 @@ export class User extends BaseEntity {
   @JoinColumn({ name: 'user_id' })
   addresses: UserAddress[];
 
-  @OneToOne(() => Rating, (rating) => rating.user)
-  @JoinColumn({ name: 'user_id' })
-  ratings: Rating;
-
   @OneToMany(() => Blog, (blog) => blog.user)
   @JoinColumn({ name: 'user_id' })
   blogs: Blog[];
+
+  @OneToMany(() => Rating, (rating) => rating.user)
+  @JoinColumn({ name: 'user_id' })
+  ratings: Rating[];
 
   @OneToMany(() => Product, (product) => product.user)
   @JoinColumn({ name: 'user_id' })

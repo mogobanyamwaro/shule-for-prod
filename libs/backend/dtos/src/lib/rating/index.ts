@@ -27,13 +27,6 @@ export class RatingDTO {
   @IsString()
   @IsNotEmpty()
   @ApiProperty({
-    description: 'The user id',
-  })
-  userId: string;
-
-  @IsString()
-  @IsNotEmpty()
-  @ApiProperty({
     description: 'The institution id',
   })
   institutionId: string;

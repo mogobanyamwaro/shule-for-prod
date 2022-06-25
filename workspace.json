@@ -10,6 +10,7 @@
     "backend-entities": "libs/backend/entities",
     "backend-enums": "libs/backend/enums",
     "backend-providers": "libs/backend/providers",
+    "backend-ratings": "libs/backend/ratings",
     "backend-shared": "libs/backend/shared",
     "backend-uploads": "libs/backend/uploads",
     "backend-users": "libs/backend/users",
