@@ -11,6 +11,12 @@ export class Institution extends BaseEntity {
     name: 'about',
   })
   about: string;
+  @Column({
+    name: 'name',
+    nullable: true,
+    default: 'hello reminder',
+  })
+  name: string;
 
   @Column({
     name: 'status',
@@ -19,6 +25,9 @@ export class Institution extends BaseEntity {
     default: InstitutionEnumStatus.PENDING,
   })
   status: InstitutionEnumStatus;
+
+  @Column({ name: 'is_featured', default: false })
+  isFeatured: boolean;
 
   @Column({
     name: 'education_type',

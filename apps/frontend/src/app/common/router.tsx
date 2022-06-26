@@ -27,6 +27,7 @@ import { Route, Routes } from 'react-router-dom';
 
 //Admin
 import AdminHome from '../pages/admin/admin.home';
+import AdminEditSchools from '../pages/admin/admin.edit.schools';
 
 export const routes = (
   <Routes>
@@ -62,5 +63,6 @@ export const routes = (
 
     {/* Admin */}
     <Route path="/admin-home" element={<AdminHome />} />
+    <Route path="/admin-edit-schools" element={<AdminEditSchools />} />
   </Routes>
 );

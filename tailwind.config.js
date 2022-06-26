@@ -37,6 +37,7 @@ module.exports = {
       white: '#FFFFFF',
       black: '#000000',
       gray: '#D9D9D9',
+      table: '#F9FAFC',
     },
     backgroundImage: {
       Logo: 'url("apps/frontend/src/assets/Logo.png")',

@@ -36,7 +36,9 @@ export class InstitutionService {
   }
 
   async getAllInstitutions() {
-    return await this.institutionRepository.find();
+    return await this.institutionRepository.find({
+      relations: ['user'],
+    });
   }
 
   async getInstitution(id: string) {
@@ -77,5 +79,26 @@ export class InstitutionService {
       };
     }
     return this.institutionRepository.save(institution);
+  }
+
+  async toglleInstitutionFeatured(id: string) {
+    const institution = await this.institutionRepository.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!institution) {
+      return {
+        code: HttpStatus.NOT_FOUND,
+        message: 'Institution not found',
+      };
+    }
+    if (institution.isFeatured === false) {
+      institution.isFeatured = true;
+      return this.institutionRepository.save(institution);
+    } else if (institution.isFeatured === true) {
+      institution.isFeatured = false;
+      return this.institutionRepository.save(institution);
+    }
   }
 }

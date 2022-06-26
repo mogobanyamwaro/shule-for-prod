@@ -4,12 +4,14 @@ import axios from 'axios';
 const API_URL = 'http://localhost:5000/api';
 export interface InstitutionInterface {
   about: string;
+  name?: string;
   status: InstitutionEnumStatus;
   educationType: string;
   educationLevel: string;
   performanceStatistics: string;
   licenseAndCertification: string;
   location: string;
+  isFeatured?: boolean;
   phone: string;
   email: string;
   facebookLink: string;
@@ -35,10 +37,21 @@ export const getOneInstitution = async (id: string) => {
   return res.data;
 };
 
+export const toglleInstitutionFeatured = async (id: string) => {
+  const config = getAuthConfig();
+  const res = await axios.put(
+    `${API_URL}/institutions/toggle-featured/${id}`,
+    {},
+    config
+  );
+  return res.data;
+};
+
 const institutionService = {
   createInstitutionProfile,
   getAllInstitutions,
   getOneInstitution,
+  toglleInstitutionFeatured,
 };
 
 export default institutionService;

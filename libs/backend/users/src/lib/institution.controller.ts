@@ -52,4 +52,12 @@ export class InstitutionController {
   async getInstitution(@Param('id') id: string) {
     return this.institutionService.getInstitution(id);
   }
+
+  @ApiOperation({ summary: 'Toggle institution featured' })
+  @Put('toggle-featured/:id')
+  @UseGuards(AuthGuard('jwt'))
+  @ApiBearerAuth()
+  async toglleInstitutionFeatured(@Param('id') id: string) {
+    return this.institutionService.toglleInstitutionFeatured(id);
+  }
 }

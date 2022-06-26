@@ -4,6 +4,7 @@ import {
   createInstitutionProfileAsync,
   getAllInstitutionsAsync,
   getOneInstitutionsAsync,
+  toglleInstitutionFeaturedAsync,
 } from './institution.action';
 import { InstitutionInterface } from './institution.service';
 import { InstitutionEnumStatus } from '@shule/backend/enums';
@@ -27,6 +28,7 @@ const initialState: InstitutionState = {
     educationLevel: '',
     educationType: '',
     email: '',
+    isFeatured: false,
     facebookLink: '',
     instagramLink: '',
     licenseAndCertification: '',
@@ -42,6 +44,7 @@ const initialState: InstitutionState = {
       id: '',
       about: '',
       educationLevel: '',
+      isFeatured: false,
       educationType: '',
       email: '',
       facebookLink: '',
@@ -95,6 +98,18 @@ const institutionSlice = createSlice({
         state.institution = action.payload;
       })
       .addCase(getOneInstitutionsAsync.rejected, (state, action) => {
+        state.loading = false;
+        state.error = parserErrorMessage(action.error);
+      })
+      .addCase(toglleInstitutionFeaturedAsync.pending, (state: any, action) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(toglleInstitutionFeaturedAsync.fulfilled, (state, action) => {
+        state.loading = false;
+        state.institution = action.payload;
+      })
+      .addCase(toglleInstitutionFeaturedAsync.rejected, (state, action) => {
         state.loading = false;
         state.error = parserErrorMessage(action.error);
       });

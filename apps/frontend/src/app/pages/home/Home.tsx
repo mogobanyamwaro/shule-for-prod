@@ -15,9 +15,49 @@ import {
 } from '@shule/web/containers';
 import { Footer } from '@shule/web/components';
 import { useNavigate } from 'react-router-dom';
+import {
+  getAllInstitutionsAsync,
+  getBlogsAsync,
+  useAppDispatch,
+  useAppSelector,
+} from '@shule/web/redux';
+import { useEffect } from 'react';
 
 function Home() {
   const navigate = useNavigate();
+
+  const institutions = useAppSelector(
+    (state) => state.institution.institutions
+  );
+  const loading = useAppSelector((state) => state.institution.loading);
+
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    try {
+      dispatch(getAllInstitutionsAsync());
+      dispatch(getBlogsAsync());
+    } catch (error) {
+      console.log(error);
+    }
+  }, [dispatch]);
+  const blogs = useAppSelector((state) => state.blog.blogs);
+
+  if (loading) return <div>Loading...</div>;
+  console.log('here are blogs', blogs[1]);
+  const newInstitutions = institutions
+    .map((institution) => {
+      return {
+        image: institution.schoolPhotos[0],
+        schoolType: institution.educationType,
+        isFeatured: institution.isFeatured,
+        id: institution.id,
+        onClick: function () {
+          navigate(`/view-school-details/${institution.id}`);
+        },
+        url: `/view-school-details/${institution.id}`,
+      };
+    })
+    .filter((institution) => institution.isFeatured === true);
   return (
     <div className=" font-glory">
       <Navbar Logo={Logo} />
@@ -39,32 +79,18 @@ function Home() {
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio ipsum morbi non pellentesque."
         title="Shop for all the latest stationery"
       />
-      <Slider
-        items={[
-          {
-            image: 'https://picsum.photos/700',
-            schoolType: 'School',
-            onClick: () => navigate('/view-school-details/1234'),
-          },
-          {
-            image: 'https://picsum.photos/700',
-            schoolType: 'School',
-            onClick: () => navigate('/view-school-details/1234'),
-          },
-          {
-            image: 'https://picsum.photos/700',
-            schoolType: 'School',
-            onClick: () => navigate('/view-school-details/1234'),
-          },
-        ]}
-        title="Featured Schools"
-      />
-      <MinBlog
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet purus sagittis urna enim. At amet, amet quis velit nec. Dolor, volutpat pellentesque fringilla nec ac. Vestibulum porttitor mi in ac. Tincidunt."
-        image="https://picsum.photos/800"
-        title="Blog Post Title"
-        onClick={() => navigate('/blog-details/1234')}
-      />
+
+      <Slider items={newInstitutions} title="Featured Schools" />
+      {!loading && blogs.length > 0 && (
+        <MinBlog
+          description={blogs[0]?.content}
+          image={blogs[0]?.image}
+          title={blogs[0]?.title}
+          onClick={function () {
+            navigate(`/blog-details/${blogs[0]?.id}`);
+          }}
+        />
+      )}
       <Footer />
     </div>
   );

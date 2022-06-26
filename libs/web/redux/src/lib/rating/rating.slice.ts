@@ -12,7 +12,10 @@ export interface RatingState {
   loading: boolean;
   error: string | null;
   rating: IgetRating;
-  ratings: IgetRating[];
+  ratings: {
+    totalRatings: number;
+    ratings: IgetRating[];
+  };
 }
 
 const initialState: RatingState = {
@@ -23,16 +26,37 @@ const initialState: RatingState = {
     ratingValue: 0,
     comment: '',
     ratingType: RatingEnumType.INSTITUTION_RATING,
+    user: {
+      id: '',
+      profile: {
+        avatar: '',
+        firstName: '',
+        lastName: '',
+      },
+      username: '',
+    },
   },
 
-  ratings: [
-    {
-      id: '',
-      ratingValue: 0,
-      comment: '',
-      ratingType: RatingEnumType.INSTITUTION_RATING,
-    },
-  ],
+  ratings: {
+    totalRatings: 0,
+    ratings: [
+      {
+        id: '',
+        comment: '',
+        ratingType: RatingEnumType.INSTITUTION_RATING,
+        ratingValue: 0,
+        user: {
+          id: '',
+          profile: {
+            avatar: '',
+            firstName: '',
+            lastName: '',
+          },
+          username: '',
+        },
+      },
+    ],
+  },
 };
 
 const ratingSlice = createSlice({

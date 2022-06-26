@@ -1,11 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  OneToMany,
-  OneToOne,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm';
 import { BaseEntity } from '../base.entity';
 import { Exclude } from 'class-transformer';
 import { IsEmail } from 'class-validator';
@@ -17,6 +10,7 @@ import { Rating } from '../rating/rating.entity';
 import { Blog } from '../blog/blog.entity';
 import { Product } from '../e-commerce/product.entity';
 import { AccessToken, RefreshToken } from '../auth';
+import { Upload } from '../uploads';
 @Entity('users')
 export class User extends BaseEntity {
   @IsEmail()
@@ -25,6 +19,13 @@ export class User extends BaseEntity {
     unique: true,
   })
   email: string;
+
+  @Column({
+    name: 'username',
+    default: 'dougle rem to update',
+    nullable: true,
+  })
+  username: string;
 
   @Exclude()
   @Column({
@@ -88,4 +89,7 @@ export class User extends BaseEntity {
   @OneToMany(() => AccessToken, (accessTokens) => accessTokens.user)
   @JoinColumn({ name: 'user_id' })
   accessTokens: AccessToken[];
+  @OneToMany(() => Upload, (files) => files.user)
+  @JoinColumn({ name: 'user_id' })
+  files: Upload[];
 }

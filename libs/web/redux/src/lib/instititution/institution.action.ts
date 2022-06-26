@@ -5,6 +5,7 @@ import {
   createInstitutionProfile,
   InstitutionInterface,
   getOneInstitution,
+  toglleInstitutionFeatured,
 } from './institution.service';
 
 export const createInstitutionProfileAsync = createAsyncThunk(
@@ -50,6 +51,25 @@ export const getOneInstitutionsAsync = createAsyncThunk(
   async (id: string, thunkApi) => {
     try {
       const response = await getOneInstitution(id);
+      return response;
+    } catch (error: any) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      thunkApi.dispatch(setMessage({ message }));
+      return thunkApi.rejectWithValue(message);
+    }
+  }
+);
+
+export const toglleInstitutionFeaturedAsync = createAsyncThunk(
+  'institution/toglleInstitutionFeatured',
+  async (id: string, thunkApi) => {
+    try {
+      const response = await toglleInstitutionFeatured(id);
       return response;
     } catch (error: any) {
       const message =

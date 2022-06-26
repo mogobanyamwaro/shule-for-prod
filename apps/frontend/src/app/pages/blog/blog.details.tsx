@@ -1,115 +1,53 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MinBlog, Navbar, Slider } from '@shule/web/containers';
 import Logo from '../../../assets/Logo.png';
 import { Button, Footer, Input, Media, Ratings } from '@shule/web/components';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import {
+  getBlogAsync,
+  getBlogsAsync,
+  useAppDispatch,
+  useAppSelector,
+} from '@shule/web/redux';
 function BlogDetails() {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const location = useLocation();
+  const blog = useAppSelector((state) => state.blog.blog);
+  const blogs = useAppSelector((state) => state.blog.blogs);
+  const loading = useAppSelector((state) => state.blog.loading);
+  useEffect(() => {
+    try {
+      const url = location.pathname.split('/');
+      const id = url[url.length - 1];
+
+      dispatch(getBlogAsync(id));
+      dispatch(getBlogsAsync());
+    } catch (error) {
+      console.log(error);
+    }
+  }, [dispatch, location]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  console.log('blog', blog);
+  console.log('blogs', blogs);
+
   return (
     <div>
       <Navbar Logo={Logo} />
       <div className="px-5 pt-24">
         <h1 className="text-main text-2xl font-bold py-5 md:max-w-5xl md:mx-auto">
-          Blog Title 1
+          {blog.title}
         </h1>
         <div className="md:max-w-5xl md:mx-auto">
-          <img src="https://picsum.photos/800" className="w-full" alt="" />
+          <img src={blog.image} className="w-full" alt="" />
         </div>
-        <p className="text-xl py-5 md:max-w-5xl md:mx-auto">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet
-          purus sagittis urna enim. At amet, amet quis velit nec. Dolor,
-          volutpat pellentesque fringilla nec ac. Vestibulum porttitor mi in ac.
-          Tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Odio amet purus sagittis urna enim. At amet, amet quis velit nec.
-          Dolor, volutpat pellentesque fringilla nec ac. Vestibulum porttitor mi
-          in ac. Tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit. Odio amet purus sagittis urna enim. At amet, amet quis velit
-          nec. Dolor, volutpat pellentesque fringilla nec ac. Vestibulum
-          porttitor mi in ac. Tincidunt.Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Odio amet purus sagittis urna enim. At amet, amet
-          quis velit nec. Dolor, volutpat pellentesque fringilla nec ac.
-          Vestibulum porttitor mi in ac. Tincidunt.Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Odio amet purus sagittis urna enim. At
-          amet, amet quis velit nec. Dolor, volutpat pellentesque fringilla nec
-          ac. Vestibulum porttitor mi in ac. Tincidunt.Lorem ipsum dolor sit
-          amet, consectetur adipiscing elit. Odio amet purus sagittis urna enim.
-          At amet, amet quis velit nec. Dolor, volutpat pellentesque fringilla
-          nec ac. Vestibulum porttitor mi in ac. Tincidunt.Lorem ipsum dolor sit
-          amet, consectetur adipiscing elit. Odio amet purus sagittis urna enim.
-          At amet, amet quis velit nec. Dolor, volutpat pellentesque fringilla
-          nec ac. Vestibulum porttitor mi in ac. Tincidunt.Lorem ipsum dolor sit
-          amet, consectetur adipiscing elit. Odio amet purus sagittis urna enim.
-          At amet, amet quis velit nec. Dolor, volutpat pellentesque fringilla
-          nec ac. Vestibulum porttitor mi in ac. Tincidunt.{' '}
-        </p>
-        <div className="md:max-w-5xl md:mx-auto">
-          <h2 className="text-main py-4 font-semibold text-xl">
-            Rating and comments:
-          </h2>
-          <div className="flex justify-between pb-4">
-            {' '}
-            <Ratings
-              hover={hover}
-              rating={rating}
-              setHover={setHover}
-              setRating={setRating}
-            />
-            <Button
-              bgColor="bg-primaryDark"
-              bgColorHover="bg-primaryDark"
-              px="px-7"
-              py="py-2"
-              onClick={() => console.log(rating)}
-              textColor="text-main"
-            >
-              Rate
-            </Button>
-          </div>
-        </div>
+        <p className="text-xl py-5 md:max-w-5xl md:mx-auto">{blog.content}</p>
 
-        <div className="md:max-w-5xl md:mx-auto">
-          <div className="pb-4">
-            <Media
-              title="Username 1"
-              alt="username"
-              image="https://picsum.photos/800"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet purus sagittis urna enim. At amet, amet quis velit "
-            />
-          </div>
-          <div className="pb-4">
-            <Media
-              title="Username 1"
-              alt="username"
-              image="https://picsum.photos/800"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet purus sagittis urna enim. At amet, amet quis velit "
-            />
-          </div>
-          <div className="pb-4">
-            <Media
-              title="Username 1"
-              alt="username"
-              image="https://picsum.photos/800"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet purus sagittis urna enim. At amet, amet quis velit "
-            />
-          </div>
-          <div className="pb-4">
-            <Media
-              title="Username 1"
-              alt="username"
-              image="https://picsum.photos/800"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet purus sagittis urna enim. At amet, amet quis velit "
-            />
-          </div>
-        </div>
-
-        <div className="md:max-w-5xl md:mx-auto">
-          <h1 className="text-main py-4 font-semibold text-xl">Add Comment</h1>
-          <div className="md:max-w-md pb-10">
-            <Input bgColor="bg-primary" py="py-8" type="textarea" />
-          </div>
-        </div>
         <div className="md:my-10">
           <Slider
             items={[
@@ -149,22 +87,23 @@ function BlogDetails() {
         </div>
 
         <div className="md:max-w-6xl">
-          {' '}
-          <MinBlog
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet purus sagittis urna enim. At amet, amet quis velit nec. Dolor, volutpat pellentesque fringilla nec ac. Vestibulum porttitor mi in ac. Tincidunt."
-            image="https://picsum.photos/800"
-            title="Blog Post Title"
-            onClick={() => navigate('/blog-details/1234')}
-          />
-        </div>
-        <div className="md:max-w-6xl">
-          {' '}
-          <MinBlog
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet purus sagittis urna enim. At amet, amet quis velit nec. Dolor, volutpat pellentesque fringilla nec ac. Vestibulum porttitor mi in ac. Tincidunt."
-            image="https://picsum.photos/800"
-            title="Blog Post Title"
-            onClick={() => navigate('/blog-details/1234')}
-          />
+          {blogs.map((blog) => {
+            return (
+              <>
+                {' '}
+                <MinBlog
+                  key={blog.id}
+                  description={blog.content}
+                  image={blog.image}
+                  title={blog.title}
+                  onClick={function () {
+                    navigate(`/blog-details/${blog.id}`);
+                  }}
+                />
+                <div className="md:max-w-6xl"></div>
+              </>
+            );
+          })}
         </div>
         <Slider
           items={[

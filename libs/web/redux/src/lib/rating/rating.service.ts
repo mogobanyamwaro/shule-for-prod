@@ -6,6 +6,15 @@ export interface RatingInterface {
   ratingValue: number;
   comment: string;
   ratingType: RatingEnumType;
+  user: {
+    id: string;
+    username: string;
+    profile: {
+      firstName: string;
+      lastName: string;
+      avatar: string;
+    };
+  };
 }
 
 export const createRating = async (input: RatingInterface) => {

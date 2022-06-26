@@ -62,6 +62,15 @@ export function ViewScholDetails() {
       comment,
       ratingValue: rating,
       ratingType: RatingEnumType.INSTITUTION_RATING,
+      user: {
+        id: '',
+        profile: {
+          avatar: '',
+          firstName: '',
+          lastName: '',
+        },
+        username: '',
+      },
     };
 
     try {
@@ -72,7 +81,7 @@ export function ViewScholDetails() {
   };
 
   if (loading) return <div>Loading...</div>;
-  console.log(institutionRatings);
+  console.log(institutionRatings.ratings);
 
   const newInstitutions = institutions.map((institution) => {
     return {
@@ -186,38 +195,19 @@ export function ViewScholDetails() {
           </div>
 
           <div className="md:max-w-5xl md:mx-auto">
-            <div className="pb-4">
-              <Media
-                title="Username 1"
-                alt="username"
-                image="https://picsum.photos/800"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet purus sagittis urna enim. At amet, amet quis velit "
-              />
-            </div>
-            <div className="pb-4">
-              <Media
-                title="Username 1"
-                alt="username"
-                image="https://picsum.photos/800"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet purus sagittis urna enim. At amet, amet quis velit "
-              />
-            </div>
-            <div className="pb-4">
-              <Media
-                title="Username 1"
-                alt="username"
-                image="https://picsum.photos/800"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet purus sagittis urna enim. At amet, amet quis velit "
-              />
-            </div>
-            <div className="pb-4">
-              <Media
-                title="Username 1"
-                alt="username"
-                image="https://picsum.photos/800"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet purus sagittis urna enim. At amet, amet quis velit "
-              />
-            </div>
+            {institutionRatings.ratings.map((rating) => {
+              return (
+                <div className="pb-4">
+                  <Media
+                    key={rating.id}
+                    title={rating.user?.username}
+                    alt="username"
+                    image={rating.user?.profile?.avatar}
+                    description={rating.comment}
+                  />
+                </div>
+              );
+            })}
           </div>
 
           <div className="md:max-w-5xl md:mx-auto">

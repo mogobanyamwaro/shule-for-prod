@@ -4,11 +4,15 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { refreshTokenMiddleware } from '@shule/web/middlewares';
 import { authReducer } from './auth';
 import { institutionReducer } from './instititution';
+import { blogReducer } from './blog';
 import { ratingReducer } from './rating';
+import { uploadReducer } from './uploads';
 const reduceers = combineReducers({
   auth: authReducer,
   institution: institutionReducer,
   rating: ratingReducer,
+  blog: blogReducer,
+  upload: uploadReducer,
 });
 
 export const store = configureStore({

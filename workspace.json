@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "backend-auth": "libs/backend/auth",
+    "backend-blogs": "libs/backend/blogs",
     "backend-core": "libs/backend/core",
     "backend-decorators": "libs/backend/decorators",
     "backend-dtos": "libs/backend/dtos",

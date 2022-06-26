@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { RatingDTO } from '@shule/backend/dtos';
 import { Institution, Rating, User } from '@shule/backend/entities';
@@ -15,17 +15,20 @@ export class RatingService {
   ) {}
 
   async createRating(rating: RatingDTO, user: User) {
-    const userAlreadyRated = await this.ratingRepository.findOne({
-      where: { userId: user.id },
-    });
-    // if (userAlreadyRated) {
-    //   userAlreadyRated.comment = rating.comment;
-    //   userAlreadyRated.ratingValue = rating.ratingValue;
-    //   return await this.ratingRepository.save(userAlreadyRated);
-    // }
     const institution = await this.institutionRepository.findOne({
       where: { id: rating.institutionId },
+      relations: ['ratings', 'ratings.user', 'ratings.user.profile'],
     });
+    const isReviewed = institution.ratings.find(
+      (rating) => rating.userId === user.id
+    );
+    if (isReviewed) {
+      return {
+        code: HttpStatus.BAD_REQUEST,
+        message: 'You have already reviewed this institution',
+      };
+    }
+
     const newRating = new Rating();
     newRating.comment = rating.comment;
     newRating.ratingValue = rating.ratingValue;
@@ -40,12 +43,12 @@ export class RatingService {
   }
 
   async getAllRatings(type: any) {
-    return await this.ratingRepository.find({
-      where: { ratingType: type },
-      relations: ['institution', 'user', 'user.profile'],
-    });
+    // return await this.ratingRepository.find({
+    //   where: { ratingType: type },
+    //   relations: ['institution', 'user', 'user.profile'],
+    // });
 
-    // return await this.ratingRepository.delete({});
+    return await this.ratingRepository.delete({});
   }
 
   async getInstitutionRatings(institutionId: string) {
@@ -54,16 +57,24 @@ export class RatingService {
       relations: ['ratings', 'ratings.user', 'ratings.user.profile'],
     });
 
-    const totalUsers = institution.ratings
-      .map((rating) => rating.userId)
-      .filter((v, i, a) => a.indexOf(v) === i).length;
+    if (institution.ratings.length === 0) {
+      return [];
+    }
     let totalRatingValue = 0;
+    const totalUsers = institution.ratings
+      .map((rating) => {
+        return rating.userId;
+      })
+      .filter((v, i, a) => a.indexOf(v) === i).length;
+
+    console.log(totalUsers);
 
     institution.ratings.forEach((rating) => {
       totalRatingValue += rating.ratingValue;
     });
 
-    const totalRating = (totalRatingValue / totalUsers).toFixed(1);
+    const totalRating = totalRatingValue / totalUsers;
+    totalRating.toFixed(1);
     console.log(totalRating);
     return {
       totalRating,

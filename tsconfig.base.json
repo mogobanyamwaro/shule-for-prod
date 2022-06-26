@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@shule/backend/auth": ["libs/backend/auth/src/index.ts"],
+      "@shule/backend/blogs": ["libs/backend/blogs/src/index.ts"],
       "@shule/backend/core": ["libs/backend/core/src/index.ts"],
       "@shule/backend/decorators": ["libs/backend/decorators/src/index.ts"],
       "@shule/backend/dtos": ["libs/backend/dtos/src/index.ts"],

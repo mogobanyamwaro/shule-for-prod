@@ -5,3 +5,4 @@ export * from './e-commerce';
 export * from './institution';
 export * from './rating';
 export * from './users';
+export * from './uploads';

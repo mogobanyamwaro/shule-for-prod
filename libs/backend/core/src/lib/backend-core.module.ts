@@ -5,6 +5,8 @@ import { BackendAuthModule } from '@shule/backend/auth';
 import { BackendUsersModule } from '@shule/backend/users';
 import { BackendRatingsModule } from '@shule/backend/ratings';
 import { getMetadataArgsStorage } from 'typeorm';
+import { BackendBlogsModule } from '@shule/backend/blogs';
+import { BackendUploadsModule } from '@shule/backend/uploads';
 @Module({
   controllers: [],
   providers: [],
@@ -31,6 +33,8 @@ import { getMetadataArgsStorage } from 'typeorm';
     BackendUsersModule,
     BackendAuthModule,
     BackendRatingsModule,
+    BackendBlogsModule,
+    BackendUploadsModule,
   ],
 })
 export class BackendCoreModule {}
