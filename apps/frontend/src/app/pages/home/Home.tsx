@@ -34,30 +34,30 @@ function Home() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     try {
-      // dispatch(getAllInstitutionsAsync());
-      // dispatch(getBlogsAsync());
+      dispatch(getAllInstitutionsAsync());
+      dispatch(getBlogsAsync());
     } catch (error) {
       console.log(error);
     }
   }, [dispatch]);
-  // const blogs = useAppSelector((state) => state.blog.blogs);
+  const blogs = useAppSelector((state) => state.blog.blogs);
 
   if (loading) return <div>Loading...</div>;
-  // console.log('here are blogs', blogs[0]);
-  // const newInstitutions = institutions
-  //   .map((institution) => {
-  //     return {
-  //       image: institution.schoolPhotos[0],
-  //       schoolType: institution.educationType,
-  //       isFeatured: institution.isFeatured,
-  //       id: institution.id,
-  //       onClick: function () {
-  //         navigate(`/view-school-details/${institution.id}`);
-  //       },
-  //       url: `/view-school-details/${institution.id}`,
-  //     };
-  //   })
-  //   .filter((institution) => institution.isFeatured === true);
+  console.log('here are blogs', blogs[0]);
+  const newInstitutions = institutions
+    .map((institution) => {
+      return {
+        image: institution.schoolPhotos[0],
+        schoolType: institution.educationType,
+        isFeatured: institution.isFeatured,
+        id: institution.id,
+        onClick: function () {
+          navigate(`/view-school-details/${institution.id}`);
+        },
+        url: `/view-school-details/${institution.id}`,
+      };
+    })
+    .filter((institution) => institution.isFeatured === true);
   return (
     <div className=" font-glory">
       <Navbar Logo={Logo} />
@@ -80,10 +80,10 @@ function Home() {
         title="Shop for all the latest stationery"
       />
 
-      {/* {newInstitutions.length > 0 && (
+      {newInstitutions.length > 0 && (
         <Slider items={newInstitutions} title="Featured Schools" />
-      )} */}
-      {/* {!loading && blogs && (
+      )}
+      {!loading && blogs && (
         <MinBlog
           description={blogs[0]?.content}
           image={blogs[0]?.image}
@@ -92,7 +92,7 @@ function Home() {
             navigate(`/blog-details/${blogs[0]?.id}`);
           }}
         />
-      )} */}
+      )}
       <Footer />
     </div>
   );

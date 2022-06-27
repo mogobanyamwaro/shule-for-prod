@@ -80,7 +80,7 @@ export function InstitutionRegistration(props: RegisterProps) {
       </div>
       <div className="pb-0 pt-5">
         <p className="text-green text-xs font-bold text-center pb-3">
-          Institution Email
+          Username
         </p>
         <Input
           name="username"
