@@ -20,9 +20,14 @@ export function MinBlog(props: MinBlogProps) {
         </div>
         <div>
           <p className="px-5 text-center py-4 md:px-0 md:text-left md:text-xl">
-            {description.length > 200
-              ? description.substring(0, 200) + '...'
-              : description}
+            <div
+              dangerouslySetInnerHTML={{
+                __html:
+                  description.length > 200
+                    ? description.substring(0, 500) + '...'
+                    : description,
+              }}
+            />
           </p>
 
           <div className="flex justify-center md:justify-start">
