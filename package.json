@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "start:dev": "nx serve",
     "start": "npm run build frontend && npm run build && node dist/apps/shule/main.js  ",
     "start:prod": "node dist/apps/shule/main.js",
     "storybook1": "nx storybook web-components ",
