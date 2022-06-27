@@ -40,7 +40,7 @@ module.exports = {
       table: '#F9FAFC',
     },
     backgroundImage: {
-      Logo: 'url("apps/frontend/src/assets/Logo.png")',
+      Logo: 'url("apps/frontend/src/assets/Logo.svg")',
       Home: 'url("apps/frontend/src/assets/home.png")',
       HomeMd: 'url("apps/frontend/src/assets/md-home.png")',
       AdminHome: 'url("apps/frontend/src/assets/admin-home.png")',

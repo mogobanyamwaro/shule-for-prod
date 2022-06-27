@@ -2,7 +2,7 @@
 
 import home from '../../../assets/home.png';
 import search from '../../../assets/search.png';
-import Logo from '../../../assets/Logo.png';
+import Logo from '../../../assets/Logo.svg';
 import shuleIs from '../../../assets/shuleIs.png';
 import BludderImage from '../../../assets/bludders.png';
 import {
