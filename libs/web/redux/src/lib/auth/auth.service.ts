@@ -1,5 +1,6 @@
 import axios from 'axios';
-
+//@ts-ignore
+const API_URL = process.env.REACT_APP_NX_BACKEND_URL;
 export type IRegisterInput = {
   email: string;
   password: string;
@@ -10,7 +11,6 @@ export type ILoginInput = {
   email: string;
   password: string;
 };
-const API_URL = 'http://localhost:5000/api';
 
 const register = async (input: IRegisterInput) => {
   const response = await axios.post(`${API_URL}/auth/register`, input);

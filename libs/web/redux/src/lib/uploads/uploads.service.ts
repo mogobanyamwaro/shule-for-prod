@@ -1,6 +1,7 @@
 import { getAuthFileConfig } from '@shule/web/helpers';
 import axios from 'axios';
-const API_URL = 'http://localhost:5000/api';
+//@ts-ignore
+const API_URL = process.env.REACT_APP_NX_BACKEND_URL;
 
 const uploadFile = async (images: any) => {
   const config = getAuthFileConfig();
