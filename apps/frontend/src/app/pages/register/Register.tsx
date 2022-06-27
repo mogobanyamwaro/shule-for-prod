@@ -18,9 +18,9 @@ function Register() {
 
   if (loading) {
     return (
-      <div className="flow-root">
+      <div className="w-full h-screen flex justify-center items-center">
         <div
-          className="spinner-border animate-spin inline-block w-screen h-screen border-4 rounded-full float-right"
+          className="spinner-border animate-spin inline-block w-32 h-32 border-4 rounded-full float-right"
           role="status"
         >
           <span className="visually-hidden">Loading...</span>

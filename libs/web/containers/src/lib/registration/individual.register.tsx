@@ -77,7 +77,9 @@ export function IndividualRegistration(props: RegisterProps) {
         />
       </div>
       <div className=" pt-5">
-        <p className="text-green text-xs font-bold text-center pb-3">Email</p>
+        <p className="text-green text-xs font-bold text-center pb-3">
+          Username
+        </p>
         <Input
           name="username"
           OnChange={handleChange}
