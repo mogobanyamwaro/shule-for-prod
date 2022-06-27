@@ -7,7 +7,7 @@
     "start:prod": "node dist/apps/shule/main.js",
     "storybook1": "nx storybook web-components ",
     "storybook2": "nx storybook web-containers",
-    "build": "nx build",
+    "build": "nx build frontend && nx build",
     "build:prod": "nx build frontend",
     "test": "nx test"
   },

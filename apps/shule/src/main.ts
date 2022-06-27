@@ -7,7 +7,7 @@ import * as winston from 'winston';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import { AppModule } from './app/app.module';
 import * as cookieParser from 'cookie-parser';
-import * as compression from 'compression';
+// import * as compression from 'compression';
 
 async function bootstrap() {
   const server = express();
@@ -30,7 +30,7 @@ async function bootstrap() {
   app.enableShutdownHooks();
   app.enableCors();
   app.use(cookieParser());
-  app.use(compression());
+  // app.use(compression());
 
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
 
