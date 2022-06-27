@@ -14,7 +14,7 @@ export class Institution extends BaseEntity {
   @Column({
     name: 'name',
     nullable: true,
-    default: 'hello reminder',
+    default: 'goShule',
   })
   name: string;
 

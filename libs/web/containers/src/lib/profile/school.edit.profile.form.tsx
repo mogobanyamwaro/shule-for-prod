@@ -14,6 +14,7 @@ export function ProfileForm() {
     React.useState<InstitutionInterface>({
       about: '',
       educationLevel: '',
+      name: '',
       educationType: '',
       email: '',
       facebookLink: '',
@@ -51,9 +52,24 @@ export function ProfileForm() {
   return (
     <form className="px-5 pb-5 " onSubmit={handleSubmit}>
       <div className="md:flex md:items-center md:justify-between md:max-w-5xl md:mx-auto">
-        <div className="py-5 md:max-w-md">
+        <div className="pb-5 md:max-w-sm md:mr-36">
           <h1 className="text-main text-xl font-semibold">Basic Info</h1>
           <h2 className="text-main font-semibold">About</h2>
+          <p className="text-xs">Name of your Institution</p>
+          <Input
+            name="name"
+            value={institutionData.name}
+            OnChange={handleChange}
+            bgColor="bg-primaryDark"
+            py="py-2"
+            type="text"
+          />
+        </div>
+      </div>
+      <div className="md:flex md:items-center md:justify-between md:max-w-5xl md:mx-auto">
+        <div className="py-5 md:max-w-md">
+          {/* <h1 className="text-main text-xl font-semibold">Basic Info</h1>
+          <h2 className="text-main font-semibold">About</h2> */}
           <p className="text-xs ">
             Please tell us about your school (max 500 words)
           </p>

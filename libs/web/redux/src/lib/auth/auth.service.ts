@@ -1,10 +1,11 @@
 import axios from 'axios';
-//@ts-ignore
-const API_URL = process.env.REACT_APP_NX_BACKEND_URL;
+
+const API_URL = 'https://goshule.herokuapp.com/api';
 export type IRegisterInput = {
   email: string;
   password: string;
   role: string;
+  username?: string;
 };
 
 export type ILoginInput = {

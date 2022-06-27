@@ -1,7 +1,6 @@
 import { getAuthFileConfig } from '@shule/web/helpers';
 import axios from 'axios';
-//@ts-ignore
-const API_URL = process.env.REACT_APP_NX_BACKEND_URL;
+const API_URL = 'https://goshule.herokuapp.com/api';
 
 const uploadFile = async (images: any) => {
   const config = getAuthFileConfig();

@@ -1,8 +1,7 @@
 import { InstitutionEnumStatus } from '@shule/backend/enums';
 import { getAuthConfig } from '@shule/web/helpers';
 import axios from 'axios';
-//@ts-ignore
-const API_URL = process.env.REACT_APP_NX_BACKEND_URL;
+const API_URL = 'https://goshule.herokuapp.com/api';
 export interface InstitutionInterface {
   about: string;
   name?: string;
