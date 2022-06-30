@@ -6,6 +6,7 @@ import {
   InstitutionDTO,
 } from '@shule/backend/dtos';
 import { Institution, Profile, User } from '@shule/backend/entities';
+import { UserRoles } from '@shule/backend/enums';
 import { HashHelper } from '@shule/backend/shared';
 import { Repository } from 'typeorm';
 
@@ -82,6 +83,25 @@ export class UserService {
       };
     }
     return user;
+  }
+
+  async updateUserRole(userId: string, role: any) {
+    const user = await this.userRepository.findOne({
+      where: {
+        id: userId,
+      },
+    });
+    if (!user) {
+      return {
+        code: HttpStatus.NOT_FOUND,
+        message: 'User not found',
+      };
+    }
+    user.role = role;
+    if (role === UserRoles.ADMIN) {
+      user.isAdmin = true;
+    }
+    return this.userRepository.save(user);
   }
 
   async createProfile(userId: string, input: CreateProfileInput) {

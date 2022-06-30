@@ -22,7 +22,7 @@ export class User extends BaseEntity {
 
   @Column({
     name: 'username',
-    default: 'dougle rem to update',
+    default: 'goshule',
     nullable: true,
   })
   username: string;

@@ -1,6 +1,6 @@
 import Search from '../../../assets/search.png';
 import back from '../../../assets/back.png';
-import Logo from '../../../assets/Logo.png';
+import Logo from '../../../assets/Logo.svg';
 import {
   SchoolNavbar,
   Slider,

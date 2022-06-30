@@ -30,8 +30,8 @@ export class BlogController {
 
   @ApiOperation({ summary: 'Get all blogs' })
   @Get('all')
-  @UseGuards(AuthGuard('jwt'))
-  @ApiBearerAuth()
+  // @UseGuards(AuthGuard('jwt'))
+  // @ApiBearerAuth()
   async getBlogs() {
     return this.blogService.getBlogs();
   }

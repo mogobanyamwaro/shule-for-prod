@@ -13,6 +13,7 @@ interface CreateUser {
   email: string;
   password: string;
   role: UserRoles;
+  username: string;
 }
 
 interface RegisterProps {
@@ -28,6 +29,7 @@ export function IndividualRegistration(props: RegisterProps) {
     password: '',
     confirmPassword: '',
     role: UserRoles.PARENT,
+    username: '',
   });
   const serverError = useAppSelector((state) => state.auth.error);
   const authSuccess = useAppSelector((state) => state.auth.sucess);
@@ -72,6 +74,19 @@ export function IndividualRegistration(props: RegisterProps) {
           bgColor="bg-primary"
           py="py-2"
           type="email"
+        />
+      </div>
+      <div className=" pt-5">
+        <p className="text-green text-xs font-bold text-center pb-3">
+          Username
+        </p>
+        <Input
+          name="username"
+          OnChange={handleChange}
+          value={userData.username}
+          bgColor="bg-primary"
+          py="py-2"
+          type="text"
         />
       </div>
       <div className="pb-10">

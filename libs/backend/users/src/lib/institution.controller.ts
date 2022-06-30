@@ -39,16 +39,16 @@ export class InstitutionController {
 
   @ApiOperation({ summary: 'Get all institutions' })
   @Get('all')
-  @UseGuards(AuthGuard('jwt'))
-  @ApiBearerAuth()
+  // @UseGuards(AuthGuard('jwt'))
+  // @ApiBearerAuth()
   async getAllInstitutions() {
     return this.institutionService.getAllInstitutions();
   }
 
   @ApiOperation({ summary: 'Get an institution' })
   @Get('/:id')
-  @UseGuards(AuthGuard('jwt'))
-  @ApiBearerAuth()
+  // @UseGuards(AuthGuard('jwt'))
+  // @ApiBearerAuth()
   async getInstitution(@Param('id') id: string) {
     return this.institutionService.getInstitution(id);
   }

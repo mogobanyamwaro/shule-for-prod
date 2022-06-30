@@ -1,6 +1,13 @@
 import Home from '../pages/home/Home';
 import Register from '../pages/register/Register';
 import Login from '../pages/login/Login';
+import Page404 from '../pages/page.404';
+import {
+  PrivateAdminRoute,
+  PrivateInstitutionRoute,
+  PrivateParentRoute,
+  PrivateRoute,
+} from './private.public.routes';
 //Ecommerce
 import Addresspayment from '../pages/e-commerce/address.payment';
 import Cart from '../pages/e-commerce/cart';
@@ -34,35 +41,41 @@ export const routes = (
     <Route path="/" element={<Home />} />
     <Route path="/register" element={<Register />} />
     <Route path="/login" element={<Login />} />
-    {/* Ecommerce */}
 
-    <Route path="/address-payment" element={<Addresspayment />} />
-    <Route path="/cart" element={<Cart />} />
-    <Route path="/checkout" element={<Checkout />} />
-    <Route path="/ecommerce-dashboard" element={<EcommerceDashboard />} />
-    <Route path="/order-confirmation" element={<OderConfirmation />} />
-    <Route path="/product-details/:id" element={<ProductDetails />} />
-    <Route path="/order-success" element={<OrderSucces />} />
-    <Route path="/create-product" element={<AdminCreateProduct />} />
+    <Route path="/" element={<PrivateRoute />}>
+      <Route path="/address-payment" element={<Addresspayment />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/ecommerce-dashboard" element={<EcommerceDashboard />} />
+      <Route path="/order-confirmation" element={<OderConfirmation />} />
+      <Route path="/product-details/:id" element={<ProductDetails />} />
+      <Route path="/order-success" element={<OrderSucces />} />
 
-    {/* Blog */}
+      <Route path="/view-school-details/:id" element={<ViewScholDetails />} />
+      <Route path="/view-schools" element={<ViewSchools />} />
+    </Route>
 
-    <Route path="/admin-create-blog" element={<AdminCreateBlog />} />
-    <Route path="/admin-update-blog/:id" element={<AdminUpdateBlog />} />
     <Route path="/blogs" element={<Blogs />} />
     <Route path="/blog-details/:id" element={<BlogDetails />} />
 
-    {/* Profile */}
+    <Route path="/" element={<PrivateInstitutionRoute />}>
+      <Route path="/create-school-profile" element={<SchoolProfile />} />
+      <Route path="/edit-school-profile" element={<EditSchoolProfile />} />
+    </Route>
 
-    <Route path="/create-school-profile" element={<SchoolProfile />} />
-    <Route path="/create-user-profile" element={<CreateUserProfile />} />
-    <Route path="/edit-school-profile" element={<EditSchoolProfile />} />
-    <Route path="/update-user-profile" element={<UpdateUserProfile />} />
-    <Route path="/view-school-details/:id" element={<ViewScholDetails />} />
-    <Route path="/view-schools" element={<ViewSchools />} />
+    <Route path="/" element={<PrivateParentRoute />}>
+      <Route path="/create-user-profile" element={<CreateUserProfile />} />
+      <Route path="/update-user-profile" element={<UpdateUserProfile />} />
+    </Route>
 
-    {/* Admin */}
-    <Route path="/admin-home" element={<AdminHome />} />
-    <Route path="/admin-edit-schools" element={<AdminEditSchools />} />
+    <Route path="/" element={<PrivateAdminRoute />}>
+      <Route path="/admin-home" element={<AdminHome />} />
+      <Route path="/admin-edit-schools" element={<AdminEditSchools />} />
+      <Route path="/create-product" element={<AdminCreateProduct />} />
+      <Route path="/admin-create-blog" element={<AdminCreateBlog />} />
+      <Route path="/admin-update-blog/:id" element={<AdminUpdateBlog />} />
+    </Route>
+
+    <Route path="*" element={<Page404 />} />
   </Routes>
 );

@@ -13,6 +13,7 @@ interface CreateUser {
   email: string;
   password: string;
   role: UserRoles;
+  username: string;
 }
 
 interface RegisterProps {
@@ -27,6 +28,7 @@ export function InstitutionRegistration(props: RegisterProps) {
     email: '',
     password: '',
     confirmPassword: '',
+    username: '',
     role: UserRoles.INSTITUTION,
   });
   const serverError = useAppSelector((state) => state.auth.error);
@@ -74,6 +76,19 @@ export function InstitutionRegistration(props: RegisterProps) {
           bgColor="bg-primary"
           py="py-2"
           type="email"
+        />
+      </div>
+      <div className="pb-0 pt-5">
+        <p className="text-green text-xs font-bold text-center pb-3">
+          Username
+        </p>
+        <Input
+          name="username"
+          value={institutionData.username}
+          OnChange={handleChange}
+          bgColor="bg-primary"
+          py="py-2"
+          type="text"
         />
       </div>
 

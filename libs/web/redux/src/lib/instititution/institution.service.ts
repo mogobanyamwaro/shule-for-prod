@@ -1,7 +1,7 @@
 import { InstitutionEnumStatus } from '@shule/backend/enums';
 import { getAuthConfig } from '@shule/web/helpers';
 import axios from 'axios';
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://goshule.herokuapp.com/api';
 export interface InstitutionInterface {
   about: string;
   name?: string;

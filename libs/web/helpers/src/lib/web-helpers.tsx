@@ -85,3 +85,17 @@ export const getFileUploadConfig = () => {
     },
   };
 };
+
+export const useAuth = () => {
+  const token = getToken();
+  if (token) {
+    return true;
+  }
+  return false;
+};
+
+export function useToken() {
+  const token = localStorage.getItem('token');
+
+  return token ? true : false;
+}

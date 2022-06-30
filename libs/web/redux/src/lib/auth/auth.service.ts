@@ -1,16 +1,17 @@
 import axios from 'axios';
 
+const API_URL = 'https://goshule.herokuapp.com/api';
 export type IRegisterInput = {
   email: string;
   password: string;
   role: string;
+  username?: string;
 };
 
 export type ILoginInput = {
   email: string;
   password: string;
 };
-const API_URL = 'http://localhost:5000/api';
 
 const register = async (input: IRegisterInput) => {
   const response = await axios.post(`${API_URL}/auth/register`, input);

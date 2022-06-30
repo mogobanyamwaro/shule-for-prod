@@ -2,7 +2,7 @@
 
 import home from '../../../assets/home.png';
 import search from '../../../assets/search.png';
-import Logo from '../../../assets/Logo.png';
+import Logo from '../../../assets/Logo.svg';
 import shuleIs from '../../../assets/shuleIs.png';
 import BludderImage from '../../../assets/bludders.png';
 import {
@@ -43,7 +43,7 @@ function Home() {
   const blogs = useAppSelector((state) => state.blog.blogs);
 
   if (loading) return <div>Loading...</div>;
-  console.log('here are blogs', blogs[1]);
+  console.log('here are blogs', blogs[0]);
   const newInstitutions = institutions
     .map((institution) => {
       return {
@@ -80,8 +80,10 @@ function Home() {
         title="Shop for all the latest stationery"
       />
 
-      <Slider items={newInstitutions} title="Featured Schools" />
-      {!loading && blogs.length > 0 && (
+      {newInstitutions.length > 0 && (
+        <Slider items={newInstitutions} title="Featured Schools" />
+      )}
+      {!loading && blogs && (
         <MinBlog
           description={blogs[0]?.content}
           image={blogs[0]?.image}
