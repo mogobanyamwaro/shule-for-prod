@@ -86,6 +86,7 @@ export function LoginForm() {
         <Input
           name="password"
           OnChange={handleChange}
+          type="password"
           value={loginData.password}
           bgColor="bg-primary"
           py="py-2"
@@ -98,7 +99,17 @@ export function LoginForm() {
         py="py-2"
         textColor="text-white"
       >
-        Sign In
+        {loading ? (
+          <>
+            <svg
+              className="animate-spin h-5 w-5  mr-3 ..."
+              viewBox="0 0 24 24"
+            ></svg>
+            Processing
+          </>
+        ) : (
+          'Login'
+        )}
       </Button>
     </form>
   );

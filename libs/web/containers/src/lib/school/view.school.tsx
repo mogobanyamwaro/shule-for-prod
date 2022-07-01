@@ -1,8 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, StarProps, Ratings } from '@shule/web/components';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { RatingEnumType } from '@shule/backend/enums';
+import { createRatingAsync, useAppDispatch } from '@shule/web/redux';
+import { getToken, useToken } from '@shule/web/helpers';
 
 export function ViewSchoolContainer(props: StarProps) {
   const { rating, setRating, hover, setHover, onClick } = props;
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const [comment, setComment] = useState('');
+  const handleSubmitComment = async () => {
+    const token = getToken();
+    if (!token) {
+      navigate('/login');
+    }
+    const newRating = {
+      comment,
+      ratingValue: rating,
+      ratingType: RatingEnumType.INSTITUTION_RATING,
+      user: {
+        id: '',
+        profile: {
+          avatar: '',
+          firstName: '',
+          lastName: '',
+        },
+        username: '',
+      },
+    };
+
+    try {
+      await dispatch(createRatingAsync(newRating));
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="md:flex md:justify-between md:max-w-5xl md:mx-auto">
       <img
@@ -37,7 +70,7 @@ export function ViewSchoolContainer(props: StarProps) {
               bgColorHover="bg-primaryDark"
               px="px-7"
               py="py-2"
-              onClick={() => console.log(rating)}
+              onClick={() => handleSubmitComment()}
               textColor="text-main"
             >
               Rate

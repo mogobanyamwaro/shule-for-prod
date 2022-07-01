@@ -42,8 +42,20 @@ function Home() {
   }, [dispatch]);
   const blogs = useAppSelector((state) => state.blog.blogs);
 
-  if (loading) return <div>Loading...</div>;
-  console.log('here are blogs', blogs[0]);
+  if (loading)
+    return (
+      <>
+        <div className="flex items-center justify-center ">
+          <div className="w-16 h-16 border-b-2 border-gray rounded-full animate-spin"></div>
+        </div>
+        <div className="flex items-center justify-center ">
+          <div className="w-24 h-24 border-l-2 border-gray rounded-full animate-spin"></div>
+        </div>
+        <div className="flex items-center justify-center ">
+          <div className="w-40 h-40 border-t-4 border-b-4 border-green rounded-full animate-spin"></div>
+        </div>
+      </>
+    );
   const newInstitutions = institutions
     .map((institution) => {
       return {

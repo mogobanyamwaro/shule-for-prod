@@ -41,22 +41,20 @@ export const routes = (
     <Route path="/" element={<Home />} />
     <Route path="/register" element={<Register />} />
     <Route path="/login" element={<Login />} />
+    <Route path="/view-school-details/:id" element={<ViewScholDetails />} />
+    <Route path="/view-schools" element={<ViewSchools />} />
+    <Route path="/cart" element={<Cart />} />
+    <Route path="/blogs" element={<Blogs />} />
+    <Route path="/blog-details/:id" element={<BlogDetails />} />
+    <Route path="/product-details/:id" element={<ProductDetails />} />
+    <Route path="/ecommerce-dashboard" element={<EcommerceDashboard />} />
 
     <Route path="/" element={<PrivateRoute />}>
       <Route path="/address-payment" element={<Addresspayment />} />
-      <Route path="/cart" element={<Cart />} />
       <Route path="/checkout" element={<Checkout />} />
-      <Route path="/ecommerce-dashboard" element={<EcommerceDashboard />} />
       <Route path="/order-confirmation" element={<OderConfirmation />} />
-      <Route path="/product-details/:id" element={<ProductDetails />} />
       <Route path="/order-success" element={<OrderSucces />} />
-
-      <Route path="/view-school-details/:id" element={<ViewScholDetails />} />
-      <Route path="/view-schools" element={<ViewSchools />} />
     </Route>
-
-    <Route path="/blogs" element={<Blogs />} />
-    <Route path="/blog-details/:id" element={<BlogDetails />} />
 
     <Route path="/" element={<PrivateInstitutionRoute />}>
       <Route path="/create-school-profile" element={<SchoolProfile />} />

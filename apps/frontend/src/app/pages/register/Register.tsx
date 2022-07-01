@@ -57,31 +57,6 @@ function Register() {
         </h2>
         {!isIndividual && <InstitutionRegistration setError={setError} />}
         {isIndividual && <IndividualRegistration setError={setError} />}
-        <div>
-          <p className="text-green py-3">Sign up as:</p>
-          <div className="flex justify-around">
-            <Button
-              bgColor="bg-main"
-              bgColorHover="bg-main"
-              px="px-3"
-              py="py-2"
-              textColor="text-white"
-              onClick={() => setIsIndividual(false)}
-            >
-              Institution
-            </Button>
-            <Button
-              bgColor="bg-main"
-              bgColorHover="bg-main"
-              px="px-3"
-              py="py-2"
-              textColor="text-white"
-              onClick={() => setIsIndividual(true)}
-            >
-              Individual
-            </Button>
-          </div>
-        </div>
 
         <hr className="mt-5" />
 

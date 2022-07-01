@@ -1,11 +1,16 @@
 import { Button, Input, Select } from '@shule/web/components';
 import { PaymentMethod } from '@shule/web/containers';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import back from '../../../assets/back.png';
 function Addresspayment() {
+  const navigate = useNavigate();
   return (
     <div className="px-5">
-      <div className="flex w-8/12 justify-between py-10">
+      <div
+        onClick={() => navigate(-1)}
+        className="flex w-8/12 justify-between py-10 cursor-pointer "
+      >
         <img src={back} alt="" className="h-9" />
       </div>
       <div className="flex justify-center items-center">

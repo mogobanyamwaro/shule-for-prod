@@ -1,7 +1,7 @@
 import React from 'react';
 import Search from '../../../assets/search.png';
 import back from '../../../assets/back.png';
-import Logo from '../../../assets/Logo.png';
+import Logo from '../../../assets/Logo.svg';
 import { RatingEnumType } from '@shule/backend/enums';
 import {
   PhotoGallery,
@@ -21,6 +21,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from '@shule/web/redux';
+import { getToken } from '@shule/web/helpers';
 export function ViewScholDetails() {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
@@ -58,6 +59,10 @@ export function ViewScholDetails() {
   }, [dispatch, location]);
 
   const handleSubmitComment = async () => {
+    const token = getToken();
+    if (!token) {
+      navigate('/login');
+    }
     const newRating = {
       comment,
       ratingValue: rating,

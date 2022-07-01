@@ -18,7 +18,7 @@ export function SchoolNavbar(props: SchoolNavbarProps) {
         <div>
           <img
             src={Logo}
-            className="cursor-pointer h-24 w-24"
+            className="cursor-pointer h-24 w-24 md:h-32 md:w-32"
             onClick={() => navigate('/')}
             alt=""
           />
