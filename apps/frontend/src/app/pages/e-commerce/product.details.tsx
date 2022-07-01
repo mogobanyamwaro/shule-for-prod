@@ -5,7 +5,6 @@ import back from '../../../assets/back.png';
 import cart from '../../../assets/cart.png';
 import {
   Button,
-  CommerceMedia,
   Footer,
   Input,
   Media,

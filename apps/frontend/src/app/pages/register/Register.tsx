@@ -9,25 +9,27 @@ import {
 } from '@shule/web/containers';
 import authLogo from '../../../assets/auth.png';
 import back from '../../../assets/back.png';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 function Register() {
   const [isIndividual, setIsIndividual] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const loading = useAppSelector((state) => state.auth.loading);
   const navigate = useNavigate();
 
-  if (loading) {
+  if (loading)
     return (
-      <div className="w-full h-screen flex justify-center items-center">
-        <div
-          className="spinner-border animate-spin inline-block w-32 h-32 border-4 rounded-full float-right"
-          role="status"
-        >
-          <span className="visually-hidden">Loading...</span>
+      <>
+        <div className="flex items-center justify-center ">
+          <div className="w-16 h-16 border-b-2 border-gray rounded-full animate-spin"></div>
         </div>
-      </div>
+        <div className="flex items-center justify-center ">
+          <div className="w-24 h-24 border-l-2 border-gray rounded-full animate-spin"></div>
+        </div>
+        <div className="flex items-center justify-center ">
+          <div className="w-40 h-40 border-t-4 border-b-4 border-green rounded-full animate-spin"></div>
+        </div>
+      </>
     );
-  }
 
   return (
     <div className="flex justify-center items-center px-5 ">
@@ -60,14 +62,13 @@ function Register() {
 
         <hr className="mt-5" />
 
-        <div
-          className="pb-10 cursor-pointer"
-          onClick={() => navigate('/login')}
-        >
-          <p className="pt-5">
-            Already have an account?{' '}
-            <small className="text-main">Sign in</small>{' '}
-          </p>
+        <div className="pb-10 cursor-pointer">
+          <Link to={'/login'}>
+            <p className="pt-5">
+              Already have an account?{' '}
+              <small className="text-main">Sign in</small>{' '}
+            </p>
+          </Link>
         </div>
       </div>
     </div>
