@@ -39,6 +39,9 @@ export function Navbar(props: NavbarProps) {
               px="px-5"
               onClick={handleLogout}
               py="py-2"
+              height="h-16 "
+              width="w-32"
+              textSize="text-xl"
             >
               logout
             </Button>
@@ -51,6 +54,9 @@ export function Navbar(props: NavbarProps) {
               textColor="text-main"
               px="px-5"
               py="py-2"
+              height="h-16 "
+              width="w-32"
+              textSize="text-xl"
             >
               <Link to={'/login'}>log in</Link>
             </Button>

@@ -1,17 +1,24 @@
 import React from 'react';
 import Search from '../../../assets/search.png';
 import back from '../../../assets/back.png';
-import Logo from '../../../assets/Logo.png';
+import Logo from '../../../assets/Logo.svg';
 import { Footer } from '@shule/web/components';
 import { ProfileForm, SchoolNavbar } from '@shule/web/containers';
+import { useNavigate } from 'react-router-dom';
 
 function SchoolProfile() {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="px-5">
         <SchoolNavbar Logo={Logo} Search={Search} />
         <div className="">
-          <img src={back} alt="" className=" cursor-pointer h-8" />
+          <img
+            src={back}
+            onClick={() => navigate(-1)}
+            alt=""
+            className=" cursor-pointer h-8"
+          />
           <h1 className="text-main font-semibold pb-5 pt-1">Welcome</h1>
         </div>
         <div>

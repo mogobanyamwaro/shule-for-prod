@@ -11,7 +11,7 @@ function Login() {
         src={back}
         alt=""
         className="absolute top-7 left-5 cursor-pointer"
-        onClick={() => navigate('/')}
+        onClick={() => navigate(-1)}
       />
       <div className="mt-24">
         <div>

@@ -111,7 +111,7 @@ export function ProfileForm() {
               type="email"
             />
           </div>
-          <div className="pb-5 md:max-w-md">
+          <div className="pb-5 md:max-w-md md:mr-36">
             <h1 className="text-main font-semibold">Phone</h1>
             <Input
               name="phone"
@@ -135,7 +135,7 @@ export function ProfileForm() {
               type="url"
             />
           </div>
-          <div>
+          <div className="md:mr-36">
             <h1 className="text-main font-semibold">Instagram</h1>
             <Input
               name="instagramLink"
@@ -163,7 +163,7 @@ export function ProfileForm() {
               type="text"
             />
           </div>
-          <div className="pb-5">
+          <div className="pb-5 md:mr-36">
             <h2 className="text-main font-semibold pb-2">Education Levels</h2>
             <p className="text-xs pb-1">
               Pre-primary,Primary, Secondary, Speacial Needs

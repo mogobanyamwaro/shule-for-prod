@@ -4,8 +4,13 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { RatingEnumType } from '@shule/backend/enums';
 import { createRatingAsync, useAppDispatch } from '@shule/web/redux';
 import { getToken, useToken } from '@shule/web/helpers';
+interface Iprops extends StarProps {
+  image: string;
+  schoolName?: string;
+  about: string;
+}
 
-export function ViewSchoolContainer(props: StarProps) {
+export function ViewSchoolContainer(props: Iprops) {
   const { rating, setRating, hover, setHover, onClick } = props;
   const dispatch = useAppDispatch();
   const navigate = useNavigate();

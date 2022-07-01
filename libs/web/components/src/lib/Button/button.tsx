@@ -10,15 +10,29 @@ export interface ButtonProps {
   type?: 'button' | 'submit' | 'reset';
   onClick?: () => void;
   loading?: boolean;
+  width?: string;
+  height?: string;
+  textSize?: string;
 }
 
 export function Button(props: ButtonProps) {
-  const { bgColor, bgColorHover, textColor, children, loading, px, py } = props;
+  const {
+    bgColor,
+    bgColorHover,
+    textColor,
+    children,
+    loading,
+    px,
+    py,
+    height,
+    width,
+    textSize,
+  } = props;
   return (
     <button
       onClick={props.onClick}
       disabled={loading}
-      className={`${bgColor} hover:${bgColorHover} ${textColor} font-bold ${py} ${px}  rounded `}
+      className={`${bgColor} hover:${bgColorHover} ${textColor} font-bold ${py} ${px}  rounded md:${width} md:${textSize} md:${height}`}
     >
       {children}
     </button>
