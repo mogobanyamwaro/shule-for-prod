@@ -21,7 +21,7 @@ export function Navbar(props: NavbarProps) {
   };
   return (
     <div className="w-full flex justify-end absolute md:max-w-5xl md:mx-auto">
-      <div className="flex w-7/12 md:w-11/12 justify-between items-center pt-3 md:pt-0 px-3 ">
+      <div className="flex w-full md:w-11/12 justify-between items-center pt-3 md:pt-0 px-3 ">
         <div>
           <img
             src={Logo}

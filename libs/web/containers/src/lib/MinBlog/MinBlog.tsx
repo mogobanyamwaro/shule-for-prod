@@ -12,7 +12,7 @@ export interface MinBlogProps {
 export function MinBlog(props: MinBlogProps) {
   const { image, description, title, onClick } = props;
   return (
-    <div className="md:mt-16 md:mb-24">
+    <div className="md:mt-16 md:mb-24 mb-5 ">
       <h1 className="text-main text-2xl py-5 font-bold pl-4  ">{title}</h1>
       <div className="flex flex-col items-center md:flex-row ">
         <div className="max-w-sm px-5">
