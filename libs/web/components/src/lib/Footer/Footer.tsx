@@ -13,8 +13,18 @@ export function Footer() {
         <div>
           <h1>Follow us on Social Media</h1>
           <div className="flex justify-between text-2xl">
-            <h1>F</h1>
-            <h1>IG</h1>
+            <h1
+              className="cursor-pointer"
+              onClick={() => window.open('https://www.facebook.com/goshule')}
+            >
+              F
+            </h1>
+            <h1
+              className="cursor-pointer"
+              onClick={() => window.open('https://www.instagram.com/go_shule/')}
+            >
+              IG
+            </h1>
             <h1>In</h1>
           </div>
         </div>
