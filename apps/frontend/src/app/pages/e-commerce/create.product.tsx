@@ -104,7 +104,7 @@ function AdminCreateProduct() {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer logo={Logo} />
     </div>
   );
 }

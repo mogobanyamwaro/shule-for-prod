@@ -239,7 +239,7 @@ function EcommerceDashboard() {
           />
         </div>
       </div>
-      <Footer />
+      <Footer logo={Logo} />
     </div>
   );
 }

@@ -34,7 +34,7 @@ export function AdminHome() {
             </h1>
           </div>
         </div>
-        <Footer />
+        <Footer logo={Logo} />
       </div>
     </div>
   );

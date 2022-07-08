@@ -264,7 +264,7 @@ export function EditSchoolProfile() {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer logo={Logo} />
     </div>
   );
 }

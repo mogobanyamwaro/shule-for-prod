@@ -136,7 +136,7 @@ function BlogDetails() {
         />
         <div className="md:my-10 mb-7 md:mb-0"></div>
       </div>
-      <Footer />
+      <Footer logo={Logo} />
     </div>
   );
 }

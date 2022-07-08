@@ -271,7 +271,7 @@ export function ViewScholDetails() {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer logo={Logo} />
     </div>
   );
 }

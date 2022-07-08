@@ -34,7 +34,7 @@ function SchoolProfile() {
         </div>
       </div>
       <ProfileForm />
-      <Footer />
+      <Footer logo={Logo} />
     </div>
   );
 }

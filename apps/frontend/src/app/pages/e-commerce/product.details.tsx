@@ -233,7 +233,7 @@ function ProductDetails() {
           />
         </div>
       </div>
-      <Footer />
+      <Footer logo={Logo} />
     </div>
   );
 }

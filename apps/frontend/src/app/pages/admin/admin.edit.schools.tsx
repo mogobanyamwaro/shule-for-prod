@@ -9,7 +9,7 @@ function AdminEditSchools() {
         <h1 className="text-main text-3xl pb-3 font-bold">Modify Schools</h1>
         <div className="md:flex md:justify-center">{<CustomTable />}</div>;
       </div>
-      <Footer />
+      <Footer logo={Logo} />
     </div>
   );
 }

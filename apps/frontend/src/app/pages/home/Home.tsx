@@ -105,7 +105,7 @@ function Home() {
           }}
         />
       )}
-      <Footer />
+      <Footer logo={Logo} />
     </div>
   );
 }
