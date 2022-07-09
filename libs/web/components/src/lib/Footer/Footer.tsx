@@ -39,7 +39,6 @@ export function Footer(props: IFooterProps) {
             >
               <img src={InstagramLogo} className="h-10" alt="" />
             </h1>
-            {/* <h1>In</h1> */}
           </div>
         </div>
       </div>
