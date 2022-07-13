@@ -1,6 +1,6 @@
 import { Footer } from '@shule/web/components';
 import { CustomTable, Navbar } from '@shule/web/containers';
-import Logo from '../../../assets/Logo.png';
+import Logo from '../../../assets/Logo.svg';
 function AdminEditSchools() {
   return (
     <div className="md:overflow-hidden">

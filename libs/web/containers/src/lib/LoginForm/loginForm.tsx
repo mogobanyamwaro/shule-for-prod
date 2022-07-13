@@ -31,8 +31,9 @@ export function LoginForm() {
   useEffect(() => {
     if (serverError) {
       setError(serverError);
+      navigate('/register');
     }
-  }, [serverError]);
+  }, [serverError, navigate]);
   useEffect(() => {
     if (tokens && !error) {
       persistToken(tokens);

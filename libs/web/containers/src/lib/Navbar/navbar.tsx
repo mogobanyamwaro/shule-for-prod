@@ -58,10 +58,11 @@ export function Navbar(props: NavbarProps) {
           {' '}
           <p className="text-main  md:block hidden">Contact Us</p>
         </Link>
-        <Link to="/register-institution">
-          {' '}
-          <p className="text-main  md:block hidden">Partner with us</p>
-        </Link>
+        {!token && (
+          <Link to="/register-institution">
+            <p className="text-main  md:block hidden">Partner with us</p>
+          </Link>
+        )}
         <Link to="/ecommerce-dashboard">
           {' '}
           <p className="text-main  md:block hidden">shop</p>

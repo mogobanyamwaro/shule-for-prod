@@ -3,15 +3,11 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { useAppSelector, useAppDispatch } from '@shule/web/redux';
 import 'react-toastify/dist/ReactToastify.css';
-import {
-  IndividualRegistration,
-  InstitutionRegistration,
-} from '@shule/web/containers';
+import { InstitutionRegistration } from '@shule/web/containers';
 import authLogo from '../../../assets/auth.png';
 import back from '../../../assets/back.png';
 import { Link, useNavigate } from 'react-router-dom';
 function RegisterInstitution() {
-  const [isIndividual, setIsIndividual] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const loading = useAppSelector((state) => state.auth.loading);
   const navigate = useNavigate();
@@ -58,7 +54,6 @@ function RegisterInstitution() {
           Welcome
         </h2>
         <InstitutionRegistration setError={setError} />
-        {/* {!isIndividual && <IndividualRegistration setError={setError} />} */}
 
         <hr className="mt-5" />
 
