@@ -7,11 +7,9 @@ export interface HeroProps {
 }
 
 export function Hero(props: HeroProps) {
-  const { backgroundImage, searchImage } = props;
+  const { searchImage } = props;
   return (
-    <div
-      className={`h-96 ${backgroundImage} md:bg-HomeMd bg-center bg-cover pt-3 px-5`}
-    >
+    <div className={`h-96 bg-Home md:bg-HomeMd bg-center bg-cover pt-3 px-5`}>
       <div className="flex justify-center items-center h-96">
         <div className="">
           <h1 className="font-Elsie font-bold text-main text-2xl leading-7 drop-shadow-md md:pb-5 text-center md:text-4xl md:leading-10 ">

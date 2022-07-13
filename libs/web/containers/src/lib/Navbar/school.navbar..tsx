@@ -1,6 +1,7 @@
 import { Input } from '@shule/web/components';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Logo from '../assets/Logo.svg';
 export interface SchoolNavbarProps {
   Search: string;
   Logo: string;
@@ -8,7 +9,7 @@ export interface SchoolNavbarProps {
 }
 
 export function SchoolNavbar(props: SchoolNavbarProps) {
-  const { Search, Logo } = props;
+  const { Search } = props;
   const navigate = useNavigate();
   return (
     <div className="w-full flex justify-end pt-4">

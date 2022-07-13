@@ -1,5 +1,6 @@
 import Home from '../pages/home/Home';
 import Register from '../pages/register/Register';
+import RegisterInstitution from '../pages/register/partner.with.us.registration';
 import Login from '../pages/login/Login';
 import Page404 from '../pages/page.404';
 import {
@@ -40,6 +41,7 @@ export const routes = (
   <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/register" element={<Register />} />
+    <Route path="/register-institution" element={<RegisterInstitution />} />
     <Route path="/login" element={<Login />} />
     <Route path="/view-school-details/:id" element={<ViewScholDetails />} />
     <Route path="/view-schools" element={<ViewSchools />} />
