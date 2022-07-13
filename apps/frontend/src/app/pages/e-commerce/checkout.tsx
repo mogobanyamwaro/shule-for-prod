@@ -1,6 +1,6 @@
 import React from 'react';
 import Search from '../../../assets/search.png';
-import Logo from '../../../assets/Logo.png';
+import Logo from '../../../assets/Logo.svg';
 import back from '../../../assets/back.png';
 import cart from '../../../assets/cart.png';
 import {

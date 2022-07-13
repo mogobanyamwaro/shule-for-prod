@@ -2,7 +2,7 @@ import { Footer } from '@shule/web/components';
 import { Navbar } from '@shule/web/containers';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Logo from '../../../assets/Logo.png';
+import Logo from '../../../assets/Logo.svg';
 
 export function AdminHome() {
   const navigate = useNavigate();

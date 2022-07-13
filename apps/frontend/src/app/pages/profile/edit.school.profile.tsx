@@ -1,7 +1,7 @@
 import React from 'react';
 import Search from '../../../assets/search.png';
 import back from '../../../assets/back.png';
-import Logo from '../../../assets/Logo.png';
+import Logo from '../../../assets/Logo.svg';
 import { PhotoGallery, SchoolNavbar, Slider } from '@shule/web/containers';
 import { useState } from 'react';
 import { Button, Footer, Input, Media, Ratings } from '@shule/web/components';
