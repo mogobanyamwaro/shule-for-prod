@@ -48,7 +48,9 @@ export function CustomTable() {
               {institution.name}
             </td>
             <td className="bg-white text-left px-2 py-4 md:px-32  ">
-              {institution.about}
+              {institution.about.length > 100
+                ? institution.about.substring(0, 50) + '...'
+                : institution.about}
             </td>
             <td
               className={`${

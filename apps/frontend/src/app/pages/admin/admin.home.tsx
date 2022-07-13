@@ -23,12 +23,18 @@ export function AdminHome() {
               Create and Edit blogs
             </p>
           </div>
-          <div className="bg-primary cursor-pointer md:h-72 h-44 w-72 mt-7 hover:bg-primaryDark">
+          <div
+            onClick={() => navigate('/create-product')}
+            className="bg-primary cursor-pointer md:h-72 h-44 w-72 mt-7 hover:bg-primaryDark"
+          >
             <p className="font-bold text-xl pt-16 px-10 md:pt-24 md:pl-10">
               Add or Edit products
             </p>
           </div>
-          <div className="bg-primary cursor-pointer md:h-72 h-44 w-72 mt-7 hover:bg-primaryDark">
+          <div
+            onClick={() => navigate('/admin-edit-schools')}
+            className="bg-primary cursor-pointer md:h-72 h-44 w-72 mt-7 hover:bg-primaryDark"
+          >
             <h1 className="font-bold pt-16 text-xl px-10 md:pt-24 md:pl-10">
               Add or Edit Schools
             </h1>
