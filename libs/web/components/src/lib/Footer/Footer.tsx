@@ -17,10 +17,10 @@ export function Footer(props: IFooterProps) {
 
         <div className="my-3 md:my-0">
           <h1 className="mb-2 ">
-            <span className="font-bold">Phone:</span> 0712345678
+            <span className="font-bold">Phone:</span> +254702263248
           </h1>
           <h1>
-            <span className="font-bold">Email:</span> Goshule@gmail.com
+            <span className="font-bold">Email:</span> info@goshule.com
           </h1>
         </div>
 
